@@ -2,7 +2,7 @@ import type { AppSettings } from '../types';
 import { SHIFT_DEFINITIONS } from './shifts';
 
 export const DEFAULT_SETTINGS: AppSettings = {
-  hospitalName: 'King Abdulaziz Medical City',
+  hospitalName: 'Al Yamamah Hospital',
   weekStartDay: 'sunday',
   shiftDefinitions: SHIFT_DEFINITIONS,
   defaultVacationDays: 21,
