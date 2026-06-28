@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import { electronStorage } from './electron-storage';
 import dayjs from 'dayjs';
 import type { ScheduleEntry, DepartmentId, ShiftType, ConflictError } from '../types';
 import { getShiftDefinition } from '../data/shifts';
@@ -143,6 +144,7 @@ export const useScheduleStore = create<ScheduleState>()(
     }),
     {
       name: 'lab-schedule-entries',
+      storage: electronStorage,
     }
   )
 );

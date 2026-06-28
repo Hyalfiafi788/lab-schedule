@@ -64,7 +64,7 @@ export const SettingsPage = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <Input
             label="Hospital Name"
-            placeholder="e.g. King Abdulaziz Medical City"
+            placeholder="e.g. Al Yamamah Hospital"
             {...register('hospitalName')}
             className="sm:col-span-2"
           />

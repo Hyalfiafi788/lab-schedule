@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import { electronStorage } from './electron-storage';
 import type { Staff, DepartmentId } from '../types';
 import { INITIAL_STAFF } from '../data/staff';
 
@@ -51,6 +52,7 @@ export const useStaffStore = create<StaffState>()(
     }),
     {
       name: 'lab-staff-data',
+      storage: electronStorage,
     }
   )
 );

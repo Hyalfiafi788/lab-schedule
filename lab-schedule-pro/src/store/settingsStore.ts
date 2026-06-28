@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import { electronStorage } from './electron-storage';
 import type { AppSettings, ShiftDefinition } from '../types';
 import { DEFAULT_SETTINGS } from '../data/settings';
 
@@ -37,6 +38,7 @@ export const useSettingsStore = create<SettingsState>()(
     }),
     {
       name: 'lab-schedule-settings',
+      storage: electronStorage,
     }
   )
 );

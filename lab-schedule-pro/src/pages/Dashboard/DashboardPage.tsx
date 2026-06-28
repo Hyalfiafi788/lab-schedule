@@ -118,7 +118,7 @@ export const DashboardPage = () => {
             {dayjs().format('dddd, D MMMM YYYY')}
           </Badge>
         </div>
-        <p className="text-slate-500 text-sm">{settings.hospitalName} — Laboratory Management</p>
+        <p className="text-slate-500 text-sm">{settings.hospitalName} — Laboratory Management System</p>
       </motion.div>
 
       {/* Stats overview */}
