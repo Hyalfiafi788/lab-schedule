@@ -4,6 +4,7 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  // base is overridden to './' when building for Electron via CLI flag
   build: {
     chunkSizeWarningLimit: 600,
     rollupOptions: {
