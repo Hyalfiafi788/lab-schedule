@@ -5,7 +5,7 @@ import {
   Building2, Clock, Calendar, Palette, Save, RotateCcw, Settings as SettingsIcon,
 } from 'lucide-react';
 import { useSettingsStore } from '../../store/settingsStore';
-import { useToast } from '../../components/ui/Toast';
+import { useToast } from '../../components/ui/toast-context';
 import type { WeekDay } from '../../types';
 import { Input } from '../../components/ui/Input';
 import { Select } from '../../components/ui/Select';

@@ -1,12 +1,12 @@
 import React, { useState, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Download, FileSpreadsheet, Printer, Trash2, ChevronLeft, ChevronRight, RotateCcw } from 'lucide-react';
+import { Download, FileSpreadsheet, Trash2, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useStaffStore } from '../../store/staffStore';
 import { useScheduleStore } from '../../store/scheduleStore';
 import { useUIStore } from '../../store/uiStore';
 import { useSettingsStore } from '../../store/settingsStore';
-import { useToast } from '../../components/ui/Toast';
+import { useToast } from '../../components/ui/toast-context';
 import type { DepartmentId, ShiftType } from '../../types';
 import { getDaysInMonth, formatMonth, isWeekend, isToday, DAY_NAMES } from '../../utils/schedule';
 import { getShiftDefinition } from '../../data/shifts';

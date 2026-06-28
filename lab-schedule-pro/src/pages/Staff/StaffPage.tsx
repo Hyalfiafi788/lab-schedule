@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import { useStaffStore } from '../../store/staffStore';
 import { useScheduleStore } from '../../store/scheduleStore';
 import { useUIStore } from '../../store/uiStore';
-import { useToast } from '../../components/ui/Toast';
+import { useToast } from '../../components/ui/toast-context';
 import type { DepartmentId, Staff } from '../../types';
 import { getDepartmentById } from '../../data/departments';
 import { computeMonthlyStats } from '../../utils/schedule';

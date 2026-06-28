@@ -7,14 +7,12 @@ import {
   Moon,
   Umbrella,
   Activity,
-  TrendingUp,
   Droplets,
   FlaskConical,
   Microscope,
   ClipboardList,
   ChevronRight,
   Calendar,
-  Clock,
 } from 'lucide-react';
 import { useStaffStore } from '../../store/staffStore';
 import { useScheduleStore } from '../../store/scheduleStore';

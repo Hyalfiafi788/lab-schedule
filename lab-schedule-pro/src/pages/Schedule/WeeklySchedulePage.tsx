@@ -6,7 +6,7 @@ import dayjs from 'dayjs';
 import { useStaffStore } from '../../store/staffStore';
 import { useScheduleStore } from '../../store/scheduleStore';
 import { useSettingsStore } from '../../store/settingsStore';
-import { useToast } from '../../components/ui/Toast';
+import { useToast } from '../../components/ui/toast-context';
 import type { DepartmentId, ShiftType } from '../../types';
 import { getShiftDefinition } from '../../data/shifts';
 import { getDepartmentById } from '../../data/departments';

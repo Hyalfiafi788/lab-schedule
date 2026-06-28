@@ -1,33 +1,18 @@
-import React, { createContext, useContext, useState, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle, AlertCircle, Info, X } from 'lucide-react';
 import { cn } from '../../utils/cn';
+import { ToastContext } from './toast-context';
+import type { ToastItem, ToastType } from './toast-context';
 
-type ToastType = 'success' | 'error' | 'info' | 'warning';
-
-interface Toast {
-  id: string;
-  type: ToastType;
-  message: string;
-  duration?: number;
-}
-
-interface ToastContextValue {
-  toast: (message: string, type?: ToastType, duration?: number) => void;
-}
-
-const ToastContext = createContext<ToastContextValue>({ toast: () => {} });
-
-export const useToast = () => useContext(ToastContext);
-
-const ICONS = {
+const ICONS: Record<ToastType, React.ReactNode> = {
   success: <CheckCircle className="h-5 w-5 text-green-500" />,
   error: <AlertCircle className="h-5 w-5 text-red-500" />,
   info: <Info className="h-5 w-5 text-blue-500" />,
   warning: <AlertCircle className="h-5 w-5 text-amber-500" />,
 };
 
-const BG_CLASSES = {
+const BG_CLASSES: Record<ToastType, string> = {
   success: 'border-green-200 bg-green-50',
   error: 'border-red-200 bg-red-50',
   info: 'border-blue-200 bg-blue-50',
@@ -35,7 +20,7 @@ const BG_CLASSES = {
 };
 
 export const ToastProvider = ({ children }: { children: React.ReactNode }) => {
-  const [toasts, setToasts] = useState<Toast[]>([]);
+  const [toasts, setToasts] = useState<ToastItem[]>([]);
 
   const dismiss = useCallback((id: string) => {
     setToasts((prev) => prev.filter((t) => t.id !== id));

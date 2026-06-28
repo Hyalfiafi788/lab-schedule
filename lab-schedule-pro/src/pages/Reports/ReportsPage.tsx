@@ -9,7 +9,7 @@ import { useStaffStore } from '../../store/staffStore';
 import { useScheduleStore } from '../../store/scheduleStore';
 import { useUIStore } from '../../store/uiStore';
 import { useSettingsStore } from '../../store/settingsStore';
-import { useToast } from '../../components/ui/Toast';
+import { useToast } from '../../components/ui/toast-context';
 import type { DepartmentId } from '../../types';
 import { getDepartmentById } from '../../data/departments';
 import { formatMonth } from '../../utils/schedule';
