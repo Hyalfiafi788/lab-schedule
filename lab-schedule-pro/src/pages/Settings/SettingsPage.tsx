@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import {
-  Building2, Clock, Calendar, Palette, Save, RotateCcw, Settings as SettingsIcon,
+  Building2, Clock, Calendar, Palette, Save, RotateCcw, Settings as SettingsIcon, Download, Upload, ShieldCheck,
 } from 'lucide-react';
 import { useSettingsStore } from '../../store/settingsStore';
 import { useToast } from '../../components/ui/toast-context';
@@ -11,6 +11,7 @@ import { Input } from '../../components/ui/Input';
 import { Select } from '../../components/ui/Select';
 import { Button } from '../../components/ui/Button';
 import { Card, CardContent, CardHeader, CardTitle } from '../../components/ui/Card';
+import { downloadBackup, restoreBackup } from '../../utils/backup';
 
 const WEEK_DAYS_OPTIONS = [
   { value: 'sunday', label: 'Sunday' },
@@ -21,6 +22,7 @@ const WEEK_DAYS_OPTIONS = [
 export const SettingsPage = () => {
   const { settings, updateSettings, resetSettings } = useSettingsStore();
   const { toast } = useToast();
+  const restoreInputRef = React.useRef<HTMLInputElement>(null);
 
   const { register, handleSubmit, reset } = useForm({
     defaultValues: {
@@ -53,6 +55,26 @@ export const SettingsPage = () => {
       minRestHours: settings.minRestHours,
     });
     toast('Settings reset to defaults', 'info');
+  };
+
+  const handleExportBackup = () => {
+    downloadBackup();
+    toast('Backup file downloaded', 'success');
+  };
+
+  const handleRestoreBackup = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    try {
+      await restoreBackup(file);
+      toast('Backup restored. Reloading app...', 'success');
+      window.setTimeout(() => window.location.reload(), 800);
+    } catch (error) {
+      toast(error instanceof Error ? error.message : 'Backup restore failed', 'error');
+    } finally {
+      event.target.value = '';
+    }
   };
 
   const settingSections = [
@@ -165,6 +187,54 @@ export const SettingsPage = () => {
           </Button>
         </div>
       </form>
+
+      {/* Data safety */}
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.25 }}
+      >
+        <Card className="overflow-hidden border-white/70 bg-white/90 shadow-lg shadow-slate-200/60 backdrop-blur">
+          <CardHeader>
+            <div className="flex items-center gap-2.5">
+              <div className="rounded-xl bg-emerald-50 p-2 text-emerald-600">
+                <ShieldCheck className="h-5 w-5" />
+              </div>
+              <div>
+                <CardTitle>Elite Data Safety</CardTitle>
+                <p className="text-sm text-slate-500">Export or restore a complete local backup.</p>
+              </div>
+            </div>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-[1fr_auto] md:items-center">
+              <div className="rounded-2xl bg-slate-50 p-4">
+                <p className="text-sm font-semibold text-slate-800">Backup includes staff, schedules, and settings.</p>
+                <p className="mt-1 text-xs leading-5 text-slate-500">
+                  Use this before major schedule changes or when moving the app to another Windows computer.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                <Button type="button" variant="outline" onClick={handleExportBackup}>
+                  <Download className="h-4 w-4" />
+                  Export Backup
+                </Button>
+                <Button type="button" variant="navy" onClick={() => restoreInputRef.current?.click()}>
+                  <Upload className="h-4 w-4" />
+                  Restore Backup
+                </Button>
+              </div>
+            </div>
+            <input
+              ref={restoreInputRef}
+              type="file"
+              accept="application/json,.json"
+              className="hidden"
+              onChange={handleRestoreBackup}
+            />
+          </CardContent>
+        </Card>
+      </motion.div>
 
       {/* Shift colors reference */}
       <motion.div
