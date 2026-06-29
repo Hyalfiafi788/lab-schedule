@@ -53,18 +53,22 @@ export const Sidebar = ({ mobile = false }: SidebarProps) => {
   };
 
   return (
-    <aside className="flex flex-col h-full bg-[#0d2137] text-white w-72 overflow-y-auto scrollbar-thin">
+    <aside className="flex h-full w-72 flex-col overflow-y-auto bg-[linear-gradient(180deg,#071629_0%,#0d2137_45%,#111827_100%)] text-white shadow-2xl shadow-slate-950/30 scrollbar-thin">
       {/* Logo */}
-      <div className="flex items-center justify-between px-5 py-5 border-b border-white/10">
+      <div className="relative overflow-hidden border-b border-white/10 px-5 py-5">
+        <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-blue-500/20 blur-2xl" />
+        <div className="relative flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-[#1a73e8] flex items-center justify-center shadow-lg">
+          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-400 via-blue-600 to-indigo-700 shadow-lg shadow-blue-950/40 ring-1 ring-white/20">
             <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5 text-white" stroke="currentColor" strokeWidth="2">
               <path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18" />
             </svg>
           </div>
           <div>
-            <div className="text-sm font-bold leading-none">LAB Schedule</div>
-            <div className="text-[10px] text-blue-300 font-medium mt-0.5">Pro</div>
+            <div className="text-base font-black leading-none tracking-tight">Lab Schedule</div>
+            <div className="mt-1 inline-flex rounded-full bg-white/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.2em] text-blue-200">
+              Pro Suite
+            </div>
           </div>
         </div>
         {mobile && (
@@ -72,6 +76,7 @@ export const Sidebar = ({ mobile = false }: SidebarProps) => {
             <X className="h-5 w-5" />
           </button>
         )}
+        </div>
       </div>
 
       {/* Main nav */}
@@ -82,9 +87,9 @@ export const Sidebar = ({ mobile = false }: SidebarProps) => {
           onClick={mobile ? handleClose : undefined}
           className={({ isActive }) =>
             cn(
-              'flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 mb-1',
+              'mb-1 flex items-center gap-3 rounded-2xl px-3 py-2.5 text-sm font-semibold transition-all duration-200',
               isActive
-                ? 'bg-[#1a73e8] text-white shadow-md shadow-[#1a73e8]/30'
+                ? 'bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-lg shadow-blue-950/30'
                 : 'text-white/70 hover:bg-white/10 hover:text-white'
             )
           }
@@ -107,14 +112,14 @@ export const Sidebar = ({ mobile = false }: SidebarProps) => {
                 <button
                   onClick={() => handleDeptClick(dept.id)}
                   className={cn(
-                    'w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200',
+                    'flex w-full items-center gap-3 rounded-2xl px-3 py-2.5 text-sm font-semibold transition-all duration-200',
                     isExpanded
-                      ? 'bg-white/15 text-white'
+                      ? 'bg-white/15 text-white shadow-inner'
                       : 'text-white/70 hover:bg-white/10 hover:text-white'
                   )}
                 >
                   <span
-                    className="w-7 h-7 flex items-center justify-center rounded-lg flex-shrink-0"
+                    className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-xl ring-1 ring-white/10"
                     style={{ backgroundColor: `${dept.color}30`, color: dept.color }}
                   >
                     {DEPT_ICONS[dept.id]}
@@ -147,9 +152,9 @@ export const Sidebar = ({ mobile = false }: SidebarProps) => {
                               to={fullPath}
                               onClick={mobile ? handleClose : undefined}
                               className={cn(
-                                'flex items-center gap-2.5 px-3 py-2 rounded-xl text-sm transition-all duration-200',
+                                'flex items-center gap-2.5 rounded-xl px-3 py-2 text-sm transition-all duration-200',
                                 isActive
-                                  ? 'bg-[#1a73e8] text-white'
+                                  ? 'bg-blue-500 text-white shadow-sm shadow-blue-950/20'
                                   : 'text-white/60 hover:bg-white/10 hover:text-white'
                               )}
                             >
@@ -175,9 +180,9 @@ export const Sidebar = ({ mobile = false }: SidebarProps) => {
           onClick={mobile ? handleClose : undefined}
           className={({ isActive }) =>
             cn(
-              'flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200',
+              'flex items-center gap-3 rounded-2xl px-3 py-2.5 text-sm font-semibold transition-all duration-200',
               isActive
-                ? 'bg-[#1a73e8] text-white'
+                ? 'bg-gradient-to-r from-blue-500 to-indigo-500 text-white'
                 : 'text-white/60 hover:bg-white/10 hover:text-white'
             )
           }
