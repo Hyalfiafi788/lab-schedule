@@ -4,8 +4,8 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  // Relative base required so assets load correctly under file:// in Electron
-  base: './',
+  // Absolute base for web deployment (use './' for Electron file:// protocol)
+  base: '/',
   build: {
     chunkSizeWarningLimit: 600,
     rollupOptions: {
