@@ -1,8 +1,9 @@
 {
-  "name": "LAB Schedule Pro",
-  "short_name": "LABSched",
-  "description": "Hospital Laboratory Staff Scheduling System",
-  "start_url": "/",
+  "name": "Lab Schedule Pro Elite",
+  "short_name": "Lab Elite",
+  "description": "Offline hospital laboratory scheduling and A/B/C shift handover system",
+  "start_url": ".",
+  "scope": ".",
   "display": "standalone",
   "background_color": "#0d2137",
   "theme_color": "#0d2137",
@@ -15,6 +16,6 @@
       "purpose": "any"
     }
   ],
-  "categories": ["medical", "productivity"],
+  "categories": ["medical", "productivity", "business"],
   "screenshots": []
 }

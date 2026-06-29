@@ -8,6 +8,7 @@ import {
   Users,
   BarChart3,
   FileText,
+  ClipboardCheck,
   Settings,
   X,
   Droplets,
@@ -34,6 +35,7 @@ const deptNavItems = [
   { path: 'staff', label: 'Staff', icon: <Users className="h-4 w-4" /> },
   { path: 'statistics', label: 'Statistics', icon: <BarChart3 className="h-4 w-4" /> },
   { path: 'reports', label: 'Reports', icon: <FileText className="h-4 w-4" /> },
+  { path: 'handover', label: 'Handover', icon: <ClipboardCheck className="h-4 w-4" /> },
 ];
 
 interface SidebarProps {

@@ -2,7 +2,7 @@ import * as XLSX from 'xlsx';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import dayjs from 'dayjs';
-import type { ScheduleEntry, Staff, DepartmentId } from '../types';
+import type { ScheduleEntry, Staff, DepartmentId, HandoverRecord } from '../types';
 import { getShiftDefinition, SHIFT_DEFINITIONS } from '../data/shifts';
 import { getDaysInMonth, formatMonth } from './schedule';
 import { getDepartmentById } from '../data/departments';
@@ -204,4 +204,130 @@ export const exportIndividualPDF = (
   );
 
   doc.save(`${staff.name.replace(/\s+/g, '_')}_Schedule_${month}.pdf`);
+};
+
+const handoverChecklistLabels: Record<keyof HandoverRecord['checklist'], string> = {
+  patientSafety: 'Patient safety handover completed',
+  criticalResultsCommunicated: 'Critical results communicated/escalated',
+  qcReviewed: 'QC and calibration reviewed',
+  pendingWorkListed: 'Pending samples/tests listed',
+  equipmentIssuesEscalated: 'Equipment issues escalated',
+  documentationComplete: 'Documentation complete and signed',
+};
+
+export const exportHandoverToExcel = (record: HandoverRecord, hospitalName: string) => {
+  const dept = getDepartmentById(record.departmentId);
+  const rows = [
+    ['Hospital', hospitalName],
+    ['Department', dept.name],
+    ['Date', dayjs(record.date).format('DD MMMM YYYY')],
+    ['Shift', record.shiftCode],
+    ['Outgoing Staff', record.outgoingStaff],
+    ['Incoming Staff', record.incomingStaff],
+    ['Supervisor', record.supervisor],
+    [],
+    ['Section', 'Details'],
+    ['Instruments Status', record.instrumentsStatus],
+    ['QC / Calibration Status', record.qcStatus],
+    ['Critical Results', record.criticalResults],
+    ['Pending Samples', record.pendingSamples],
+    ['Pending Tests', record.pendingTests],
+    ['Incidents / Deviations', record.incidents],
+    ['Supplies Status', record.suppliesStatus],
+    ['Notes', record.notes],
+    [],
+    ['CAP/ISO Documentation Checklist', 'Status'],
+    ...Object.entries(record.checklist).map(([key, value]) => [
+      handoverChecklistLabels[key as keyof HandoverRecord['checklist']],
+      value ? 'Completed' : 'Pending',
+    ]),
+    [],
+    ['Outgoing Signature', record.outgoingSignature],
+    ['Incoming Signature', record.incomingSignature],
+    ['Generated At', dayjs().format('DD MMM YYYY HH:mm')],
+  ];
+
+  const ws = XLSX.utils.aoa_to_sheet(rows);
+  ws['!cols'] = [{ wch: 34 }, { wch: 70 }];
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, `${dept.shortName} ${record.shiftCode}`);
+  XLSX.writeFile(wb, `${dept.shortName}_Handover_${record.date}_Shift_${record.shiftCode}.xlsx`);
+};
+
+export const exportHandoverToPDF = (record: HandoverRecord, hospitalName: string) => {
+  const dept = getDepartmentById(record.departmentId);
+  const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+
+  doc.setFillColor(13, 33, 55);
+  doc.rect(0, 0, doc.internal.pageSize.width, 26, 'F');
+  doc.setTextColor(255, 255, 255);
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(14);
+  doc.text(hospitalName, 14, 10);
+  doc.setFontSize(10);
+  doc.text(`${dept.name} — Shift ${record.shiftCode} Handover`, 14, 18);
+  doc.setFont('helvetica', 'normal');
+  doc.text(dayjs(record.date).format('DD MMMM YYYY'), 150, 18);
+
+  doc.setTextColor(0, 0, 0);
+  autoTable(doc, {
+    startY: 32,
+    body: [
+      ['Outgoing Staff', record.outgoingStaff || '-'],
+      ['Incoming Staff', record.incomingStaff || '-'],
+      ['Supervisor', record.supervisor || '-'],
+      ['Outgoing Signature', record.outgoingSignature || '-'],
+      ['Incoming Signature', record.incomingSignature || '-'],
+    ],
+    styles: { fontSize: 9, cellPadding: 2.2 },
+    columnStyles: {
+      0: { fillColor: [241, 245, 249], fontStyle: 'bold', cellWidth: 45 },
+      1: { cellWidth: 130 },
+    },
+    margin: { left: 14, right: 14 },
+  });
+
+  autoTable(doc, {
+    startY: (doc as any).lastAutoTable.finalY + 8,
+    head: [['Operational Area', 'Handover Details']],
+    body: [
+      ['Instruments Status', record.instrumentsStatus || '-'],
+      ['QC / Calibration Status', record.qcStatus || '-'],
+      ['Critical Results', record.criticalResults || '-'],
+      ['Pending Samples', record.pendingSamples || '-'],
+      ['Pending Tests', record.pendingTests || '-'],
+      ['Incidents / Deviations', record.incidents || '-'],
+      ['Supplies Status', record.suppliesStatus || '-'],
+      ['Notes', record.notes || '-'],
+    ],
+    styles: { fontSize: 8.5, cellPadding: 2.2, valign: 'top' },
+    headStyles: { fillColor: [26, 115, 232], textColor: 255, fontStyle: 'bold' },
+    columnStyles: {
+      0: { fontStyle: 'bold', cellWidth: 45 },
+      1: { cellWidth: 130 },
+    },
+    margin: { left: 14, right: 14 },
+  });
+
+  autoTable(doc, {
+    startY: (doc as any).lastAutoTable.finalY + 8,
+    head: [['CAP/ISO-aligned Checklist', 'Status']],
+    body: Object.entries(record.checklist).map(([key, value]) => [
+      handoverChecklistLabels[key as keyof HandoverRecord['checklist']],
+      value ? 'Completed' : 'Pending',
+    ]),
+    styles: { fontSize: 8.5, cellPadding: 2 },
+    headStyles: { fillColor: [13, 33, 55], textColor: 255, fontStyle: 'bold' },
+    columnStyles: {
+      0: { cellWidth: 130 },
+      1: { halign: 'center', cellWidth: 45 },
+    },
+    margin: { left: 14, right: 14 },
+  });
+
+  const footerY = doc.internal.pageSize.height - 14;
+  doc.setFontSize(8);
+  doc.setTextColor(100, 116, 139);
+  doc.text('CAP/ISO-aligned template. Final approval must follow local laboratory quality policy.', 14, footerY);
+  doc.save(`${dept.shortName}_Handover_${record.date}_Shift_${record.shiftCode}.pdf`);
 };

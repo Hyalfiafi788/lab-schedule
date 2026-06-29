@@ -11,6 +11,8 @@ export type ShiftType =
   | 'meeting'
   | 'oncall';
 
+export type HandoverShiftCode = 'A' | 'B' | 'C';
+
 export type WeekDay = 'sunday' | 'monday' | 'tuesday' | 'wednesday' | 'thursday' | 'friday' | 'saturday';
 
 export interface ShiftDefinition {
@@ -48,6 +50,36 @@ export interface ScheduleEntry {
   date: string; // YYYY-MM-DD
   shift: ShiftType;
   note?: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface HandoverRecord {
+  id: string;
+  departmentId: DepartmentId;
+  date: string;
+  shiftCode: HandoverShiftCode;
+  outgoingStaff: string;
+  incomingStaff: string;
+  supervisor: string;
+  instrumentsStatus: string;
+  qcStatus: string;
+  criticalResults: string;
+  pendingSamples: string;
+  pendingTests: string;
+  incidents: string;
+  suppliesStatus: string;
+  notes: string;
+  checklist: {
+    patientSafety: boolean;
+    criticalResultsCommunicated: boolean;
+    qcReviewed: boolean;
+    pendingWorkListed: boolean;
+    equipmentIssuesEscalated: boolean;
+    documentationComplete: boolean;
+  };
+  outgoingSignature: string;
+  incomingSignature: string;
   createdAt: string;
   updatedAt: string;
 }

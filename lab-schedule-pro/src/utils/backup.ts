@@ -1,4 +1,4 @@
-const STORAGE_KEYS = ['lab-staff-data', 'lab-schedule-entries', 'lab-schedule-settings'] as const;
+const STORAGE_KEYS = ['lab-staff-data', 'lab-schedule-entries', 'lab-schedule-settings', 'lab-handover-records'] as const;
 
 export interface BackupPayload {
   app: 'lab-schedule-pro';
