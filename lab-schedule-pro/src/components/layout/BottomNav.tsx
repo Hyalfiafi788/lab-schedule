@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { LayoutDashboard, Calendar, Users, BarChart3, Settings } from 'lucide-react';
+import { LayoutDashboard, Calendar, Users, ClipboardCheck, Settings } from 'lucide-react';
 import { cn } from '../../utils/cn';
 import { useUIStore } from '../../store/uiStore';
 
@@ -26,9 +26,9 @@ export const BottomNav = () => {
       path: `/department/${activeDepartment}/staff`,
     },
     {
-      label: 'Stats',
-      icon: <BarChart3 className="h-5 w-5" />,
-      path: `/department/${activeDepartment}/statistics`,
+      label: 'Handover',
+      icon: <ClipboardCheck className="h-5 w-5" />,
+      path: `/department/${activeDepartment}/handover`,
     },
     {
       label: 'Settings',

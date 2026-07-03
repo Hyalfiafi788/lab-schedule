@@ -2,7 +2,7 @@ import * as XLSX from 'xlsx';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import dayjs from 'dayjs';
-import type { ScheduleEntry, Staff, DepartmentId } from '../types';
+import type { ScheduleEntry, Staff, DepartmentId, HandoverRecord } from '../types';
 import { getShiftDefinition, SHIFT_DEFINITIONS } from '../data/shifts';
 import { getDaysInMonth, formatMonth } from './schedule';
 import { getDepartmentById } from '../data/departments';
@@ -204,4 +204,79 @@ export const exportIndividualPDF = (
   );
 
   doc.save(`${staff.name.replace(/\s+/g, '_')}_Schedule_${month}.pdf`);
+};
+
+export const exportHandoverToExcel = (record: HandoverRecord, hospitalName: string) => {
+  const dept = getDepartmentById(record.departmentId);
+  const rows = [
+    ['Hospital', hospitalName],
+    ['Department', dept.name],
+    ['Date', dayjs(record.date).format('DD MMMM YYYY')],
+    ['Shift', record.shiftCode],
+    ['المسلم / Outgoing Staff', record.outgoingStaff],
+    ['المستلم / Incoming Staff', record.incomingStaff],
+    [],
+    ['تقرير المناوبة / Shift Report', record.notes],
+    [],
+    ['التوقيع الإلكتروني للموظف / Employee Electronic Signature', record.outgoingSignature],
+    ['Generated At', dayjs().format('DD MMM YYYY HH:mm')],
+  ];
+
+  const ws = XLSX.utils.aoa_to_sheet(rows);
+  ws['!cols'] = [{ wch: 34 }, { wch: 70 }];
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, `${dept.shortName} ${record.shiftCode}`);
+  XLSX.writeFile(wb, `${dept.shortName}_Handover_${record.date}_Shift_${record.shiftCode}.xlsx`);
+};
+
+export const exportHandoverToPDF = (record: HandoverRecord, hospitalName: string) => {
+  const dept = getDepartmentById(record.departmentId);
+  const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+
+  doc.setFillColor(13, 33, 55);
+  doc.rect(0, 0, doc.internal.pageSize.width, 26, 'F');
+  doc.setTextColor(255, 255, 255);
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(14);
+  doc.text(hospitalName, 14, 10);
+  doc.setFontSize(10);
+  doc.text(`${dept.name} — Shift ${record.shiftCode} Handover`, 14, 18);
+  doc.setFont('helvetica', 'normal');
+  doc.text(dayjs(record.date).format('DD MMMM YYYY'), 150, 18);
+
+  doc.setTextColor(0, 0, 0);
+  autoTable(doc, {
+    startY: 32,
+    body: [
+      ['المسلم / Outgoing Staff', record.outgoingStaff || '-'],
+      ['المستلم / Incoming Staff', record.incomingStaff || '-'],
+      ['التوقيع الإلكتروني للموظف', record.outgoingSignature || '-'],
+    ],
+    styles: { fontSize: 9, cellPadding: 2.2 },
+    columnStyles: {
+      0: { fillColor: [241, 245, 249], fontStyle: 'bold', cellWidth: 45 },
+      1: { cellWidth: 130 },
+    },
+    margin: { left: 14, right: 14 },
+  });
+
+  autoTable(doc, {
+    startY: (doc as any).lastAutoTable.finalY + 8,
+    head: [['تقرير المناوبة / Shift Report']],
+    body: [
+      [record.notes || '-'],
+    ],
+    styles: { fontSize: 8.5, cellPadding: 2.2, valign: 'top' },
+    headStyles: { fillColor: [26, 115, 232], textColor: 255, fontStyle: 'bold' },
+    columnStyles: {
+      0: { cellWidth: 175 },
+    },
+    margin: { left: 14, right: 14 },
+  });
+
+  const footerY = doc.internal.pageSize.height - 14;
+  doc.setFontSize(8);
+  doc.setTextColor(100, 116, 139);
+  doc.text('Offline shift handover report. Review and approval follow local laboratory policy.', 14, footerY);
+  doc.save(`${dept.shortName}_Handover_${record.date}_Shift_${record.shiftCode}.pdf`);
 };

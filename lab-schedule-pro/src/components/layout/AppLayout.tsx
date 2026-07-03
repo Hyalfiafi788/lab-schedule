@@ -13,9 +13,13 @@ export const AppLayout = () => {
   const isDeptPage = location.pathname.startsWith('/department/');
 
   return (
-    <div className="flex h-screen overflow-hidden bg-slate-50">
+    <div className="relative flex h-screen overflow-hidden bg-[radial-gradient(circle_at_top_left,#dbeafe_0,#f8fafc_34%,#eef2ff_68%,#f8fafc_100%)]">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute -top-32 left-1/3 h-72 w-72 rounded-full bg-blue-300/20 blur-3xl" />
+        <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-violet-300/20 blur-3xl" />
+      </div>
       {/* Desktop sidebar */}
-      <div className="hidden md:flex flex-shrink-0">
+      <div className="relative z-10 hidden md:flex flex-shrink-0">
         <Sidebar />
       </div>
 
@@ -44,7 +48,7 @@ export const AppLayout = () => {
       </AnimatePresence>
 
       {/* Main content */}
-      <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
+      <div className="relative z-10 flex-1 flex flex-col min-w-0 overflow-hidden">
         <Header />
         {isDeptPage && <DepartmentTabs />}
         <main className="flex-1 overflow-y-auto scrollbar-thin pb-16 md:pb-0">

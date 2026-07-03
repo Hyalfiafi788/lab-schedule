@@ -11,6 +11,7 @@ const StaffPage = lazy(() => import('./pages/Staff/StaffPage').then(m => ({ defa
 const StatisticsPage = lazy(() => import('./pages/Statistics/StatisticsPage').then(m => ({ default: m.StatisticsPage })));
 const ReportsPage = lazy(() => import('./pages/Reports/ReportsPage').then(m => ({ default: m.ReportsPage })));
 const SettingsPage = lazy(() => import('./pages/Settings/SettingsPage').then(m => ({ default: m.SettingsPage })));
+const HandoverPage = lazy(() => import('./pages/Handover/HandoverPage').then(m => ({ default: m.HandoverPage })));
 
 function PageLoader() {
   return (
@@ -76,6 +77,14 @@ export default function App() {
                 element={
                   <Suspense fallback={<PageLoader />}>
                     <ReportsPage />
+                  </Suspense>
+                }
+              />
+              <Route
+                path="handover"
+                element={
+                  <Suspense fallback={<PageLoader />}>
+                    <HandoverPage />
                   </Suspense>
                 }
               />

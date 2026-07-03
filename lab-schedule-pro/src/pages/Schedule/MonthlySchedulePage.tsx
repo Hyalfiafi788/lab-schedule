@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Download, FileSpreadsheet, Trash2, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Download, FileSpreadsheet, Trash2, ChevronLeft, ChevronRight, Wand2, Sparkles } from 'lucide-react';
 import { useStaffStore } from '../../store/staffStore';
 import { useScheduleStore } from '../../store/scheduleStore';
 import { useUIStore } from '../../store/uiStore';
@@ -12,6 +12,7 @@ import { getDaysInMonth, formatMonth, isWeekend, isToday, DAY_NAMES } from '../.
 import { getShiftDefinition } from '../../data/shifts';
 import { getDepartmentById } from '../../data/departments';
 import { exportToExcel, exportToPDF } from '../../utils/export';
+import { generateEliteSchedule } from '../../utils/autoScheduler';
 import { ShiftBadge, ShiftPicker } from '../../components/schedule/ShiftBadge';
 import { Button } from '../../components/ui/Button';
 import { Modal } from '../../components/ui/Modal';
@@ -30,13 +31,14 @@ export const MonthlySchedulePage = () => {
   const deptId = departmentId as DepartmentId;
 
   const { getStaffByDepartment } = useStaffStore();
-  const { setShift, getDepartmentMonthEntries, clearDepartmentMonth } = useScheduleStore();
+  const { entries: allEntries, setShift, getDepartmentMonthEntries, clearDepartmentMonth, bulkSetShifts } = useScheduleStore();
   const { currentMonth, prevMonth, nextMonth } = useUIStore();
   const { settings } = useSettingsStore();
   const { toast } = useToast();
 
   const [editCell, setEditCell] = useState<CellEditState | null>(null);
   const [confirmClear, setConfirmClear] = useState(false);
+  const [confirmAutoPlan, setConfirmAutoPlan] = useState(false);
 
   const dept = getDepartmentById(deptId);
   const staff = getStaffByDepartment(deptId);
@@ -83,6 +85,23 @@ export const MonthlySchedulePage = () => {
     clearDepartmentMonth(deptId, currentMonth);
     toast(`Schedule cleared for ${formatMonth(currentMonth)}`, 'info');
     setConfirmClear(false);
+  };
+
+  const handleAutoPlan = () => {
+    const seedEntries = allEntries.filter(
+      (entry) => !(entry.departmentId === deptId && entry.date.startsWith(currentMonth))
+    );
+    const generatedEntries = generateEliteSchedule({
+      departmentId: deptId,
+      month: currentMonth,
+      staff,
+      existingEntries: seedEntries,
+    });
+
+    clearDepartmentMonth(deptId, currentMonth);
+    bulkSetShifts(generatedEntries);
+    toast(`Elite auto plan created: ${generatedEntries.length} assignments`, 'success');
+    setConfirmAutoPlan(false);
   };
 
   // Shift summary per staff
@@ -137,6 +156,16 @@ export const MonthlySchedulePage = () => {
         <Button variant="outline" size="sm" onClick={handlePDFExport} className="hidden sm:flex">
           <Download className="h-4 w-4" />
           PDF
+        </Button>
+        <Button
+          variant="navy"
+          size="sm"
+          onClick={() => setConfirmAutoPlan(true)}
+          className="bg-gradient-to-r from-blue-600 to-indigo-600 shadow-lg shadow-blue-600/20"
+        >
+          <Wand2 className="h-4 w-4" />
+          <span className="hidden sm:inline">Elite Auto Plan</span>
+          <span className="sm:hidden">Auto</span>
         </Button>
         <Button
           variant="outline"
@@ -332,6 +361,58 @@ export const MonthlySchedulePage = () => {
             <Trash2 className="h-4 w-4" />
             Clear All
           </Button>
+        </div>
+      </Modal>
+
+      {/* Elite auto scheduler modal */}
+      <Modal
+        open={confirmAutoPlan}
+        onClose={() => setConfirmAutoPlan(false)}
+        title="Elite Auto Scheduler"
+        description={`Generate a balanced plan for ${dept.name} · ${formatMonth(currentMonth)}`}
+        size="lg"
+      >
+        <div className="space-y-5">
+          <div className="overflow-hidden rounded-3xl bg-slate-950 p-5 text-white">
+            <div className="flex items-start gap-3">
+              <div className="rounded-2xl bg-blue-500/20 p-3 text-blue-100 ring-1 ring-blue-300/30">
+                <Sparkles className="h-6 w-6" />
+              </div>
+              <div>
+                <h3 className="text-lg font-black">Generate a professional monthly roster</h3>
+                <p className="mt-1 text-sm leading-6 text-blue-100">
+                  The Elite engine balances morning, evening, night, on-call, off, and training days while evening out total hours, night shifts, and weekend workload.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+            {[
+              { label: 'Staff included', value: staff.length },
+              { label: 'Month days', value: days.length },
+              { label: 'Entries replaced', value: entries.length },
+            ].map((item) => (
+              <div key={item.label} className="rounded-2xl border border-slate-100 bg-slate-50 p-4">
+                <div className="text-2xl font-black text-slate-950">{item.value}</div>
+                <div className="text-xs font-semibold uppercase tracking-wide text-slate-500">{item.label}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-800">
+            This replaces only <strong>{dept.name}</strong> shifts in <strong>{formatMonth(currentMonth)}</strong>. Staff records and other departments stay unchanged.
+          </div>
+
+          <div className="flex justify-end gap-2">
+            <Button variant="outline" onClick={() => setConfirmAutoPlan(false)}>
+              Cancel
+            </Button>
+            <Button onClick={handleAutoPlan} className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
+              <Wand2 className="h-4 w-4" />
+              Generate Elite Plan
+            </Button>
+          </div>
         </div>
       </Modal>
     </div>
