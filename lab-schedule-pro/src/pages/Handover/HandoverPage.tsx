@@ -1,9 +1,9 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ClipboardCheck, FileSpreadsheet, FileText, Printer, Save, ShieldCheck } from 'lucide-react';
+import { FileSpreadsheet, FileText, PenLine, Printer, Save } from 'lucide-react';
 import dayjs from 'dayjs';
-import type { DepartmentId, HandoverRecord, HandoverShiftCode } from '../../types';
+import type { DepartmentId, HandoverShiftCode } from '../../types';
 import { getDepartmentById } from '../../data/departments';
 import { useHandoverStore } from '../../store/handoverStore';
 import { useSettingsStore } from '../../store/settingsStore';
@@ -15,30 +15,18 @@ import { Badge } from '../../components/ui/Badge';
 import { exportHandoverToExcel, exportHandoverToPDF } from '../../utils/export';
 import { cn } from '../../utils/cn';
 
-type HandoverForm = Omit<HandoverRecord, 'id' | 'departmentId' | 'date' | 'shiftCode' | 'createdAt' | 'updatedAt'>;
+interface HandoverForm {
+  outgoingStaff: string;
+  incomingStaff: string;
+  shiftReport: string;
+  employeeSignature: string;
+}
 
 const emptyForm: HandoverForm = {
   outgoingStaff: '',
   incomingStaff: '',
-  supervisor: '',
-  instrumentsStatus: '',
-  qcStatus: '',
-  criticalResults: '',
-  pendingSamples: '',
-  pendingTests: '',
-  incidents: '',
-  suppliesStatus: '',
-  notes: '',
-  checklist: {
-    patientSafety: false,
-    criticalResultsCommunicated: false,
-    qcReviewed: false,
-    pendingWorkListed: false,
-    equipmentIssuesEscalated: false,
-    documentationComplete: false,
-  },
-  outgoingSignature: '',
-  incomingSignature: '',
+  shiftReport: '',
+  employeeSignature: '',
 };
 
 const shiftCards: { code: HandoverShiftCode; label: string; time: string }[] = [
@@ -46,15 +34,6 @@ const shiftCards: { code: HandoverShiftCode; label: string; time: string }[] = [
   { code: 'B', label: 'Shift B', time: '15:00 - 23:00' },
   { code: 'C', label: 'Shift C', time: '23:00 - 07:00' },
 ];
-
-const checklistLabels: Record<keyof HandoverForm['checklist'], string> = {
-  patientSafety: 'Patient safety risks reviewed',
-  criticalResultsCommunicated: 'Critical results communicated/escalated',
-  qcReviewed: 'QC, calibration, and controls reviewed',
-  pendingWorkListed: 'Pending samples/tests clearly listed',
-  equipmentIssuesEscalated: 'Equipment issues escalated',
-  documentationComplete: 'Documentation complete and signed',
-};
 
 const TextArea = ({
   label,
@@ -96,18 +75,8 @@ export const HandoverPage = () => {
     setForm(saved ? {
       outgoingStaff: saved.outgoingStaff,
       incomingStaff: saved.incomingStaff,
-      supervisor: saved.supervisor,
-      instrumentsStatus: saved.instrumentsStatus,
-      qcStatus: saved.qcStatus,
-      criticalResults: saved.criticalResults,
-      pendingSamples: saved.pendingSamples,
-      pendingTests: saved.pendingTests,
-      incidents: saved.incidents,
-      suppliesStatus: saved.suppliesStatus,
-      notes: saved.notes,
-      checklist: saved.checklist,
-      outgoingSignature: saved.outgoingSignature,
-      incomingSignature: saved.incomingSignature,
+      shiftReport: saved.notes,
+      employeeSignature: saved.outgoingSignature,
     } : emptyForm);
   }, [date, deptId, getRecord, shiftCode]);
 
@@ -117,10 +86,30 @@ export const HandoverPage = () => {
 
   const saveRecord = () => {
     const saved = upsertRecord({
-      ...form,
       departmentId: deptId,
       date,
       shiftCode,
+      outgoingStaff: form.outgoingStaff,
+      incomingStaff: form.incomingStaff,
+      supervisor: '',
+      instrumentsStatus: '',
+      qcStatus: '',
+      criticalResults: '',
+      pendingSamples: '',
+      pendingTests: '',
+      incidents: '',
+      suppliesStatus: '',
+      notes: form.shiftReport,
+      checklist: {
+        patientSafety: false,
+        criticalResultsCommunicated: false,
+        qcReviewed: false,
+        pendingWorkListed: false,
+        equipmentIssuesEscalated: false,
+        documentationComplete: true,
+      },
+      outgoingSignature: form.employeeSignature,
+      incomingSignature: '',
     });
     toast(`Shift ${shiftCode} handover saved`, 'success');
     return saved;
@@ -148,17 +137,17 @@ export const HandoverPage = () => {
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
             <Badge className="mb-3 bg-white/10 text-white ring-1 ring-white/20">
-              <ShieldCheck className="mr-1.5 h-3.5 w-3.5" />
-              CAP/ISO-aligned Offline Handover
+              <PenLine className="mr-1.5 h-3.5 w-3.5" />
+              Offline Shift Report
             </Badge>
-            <h1 className="text-2xl font-black md:text-4xl">Shift handover & takeover</h1>
+            <h1 className="text-2xl font-black md:text-4xl">Shift handover report</h1>
             <p className="mt-2 text-sm leading-6 text-blue-100">
-              {dept.name} · structured A/B/C handover, local offline saving, PDF, Excel, and print.
+              {dept.name} · المسلم والمستلم وتقرير المناوبة والتوقيع الإلكتروني فقط.
             </p>
           </div>
           <div className="rounded-3xl bg-white/10 p-4 ring-1 ring-white/10">
-            <div className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-100">Quality note</div>
-            <div className="mt-1 text-sm font-bold">Template ready for local quality approval</div>
+            <div className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-100">Simple Mode</div>
+            <div className="mt-1 text-sm font-bold">Fast mobile offline handover</div>
           </div>
         </div>
       </motion.div>
@@ -189,68 +178,22 @@ export const HandoverPage = () => {
             </div>
           </div>
 
-          <div className="grid gap-3 md:grid-cols-3">
-            <Input label="Outgoing Staff" value={form.outgoingStaff} onChange={(event) => updateField('outgoingStaff', event.target.value)} placeholder="Name / ID" />
-            <Input label="Incoming Staff" value={form.incomingStaff} onChange={(event) => updateField('incomingStaff', event.target.value)} placeholder="Name / ID" />
-            <Input label="Supervisor" value={form.supervisor} onChange={(event) => updateField('supervisor', event.target.value)} placeholder="Supervisor name" />
+          <div className="grid gap-3 md:grid-cols-2">
+            <Input label="المسلم / Outgoing Staff" value={form.outgoingStaff} onChange={(event) => updateField('outgoingStaff', event.target.value)} placeholder="اكتب اسم الموظف المسلم" />
+            <Input label="المستلم / Incoming Staff" value={form.incomingStaff} onChange={(event) => updateField('incomingStaff', event.target.value)} placeholder="اكتب اسم الموظف المستلم" />
           </div>
         </CardContent>
       </Card>
 
-      <div className="grid gap-4 lg:grid-cols-2">
-        <Card className="border-white/70 bg-white/90 shadow-lg shadow-slate-200/60 backdrop-blur">
-          <CardContent className="space-y-4 p-4 md:p-5">
-            <div className="flex items-center gap-2">
-              <ClipboardCheck className="h-5 w-5 text-blue-600" />
-              <h2 className="text-lg font-black text-slate-950">Operational Handover</h2>
-            </div>
-            <TextArea label="Instruments Status" value={form.instrumentsStatus} onChange={(value) => updateField('instrumentsStatus', value)} placeholder="Analyzer status, maintenance, downtime, alarms..." />
-            <TextArea label="QC / Calibration Status" value={form.qcStatus} onChange={(value) => updateField('qcStatus', value)} placeholder="QC pass/fail, calibrations, corrective actions..." />
-            <TextArea label="Critical Results" value={form.criticalResults} onChange={(value) => updateField('criticalResults', value)} placeholder="Critical values communicated, pending calls, read-back..." />
-            <TextArea label="Incidents / Deviations" value={form.incidents} onChange={(value) => updateField('incidents', value)} placeholder="Nonconformities, safety events, escalations..." />
-          </CardContent>
-        </Card>
-
-        <Card className="border-white/70 bg-white/90 shadow-lg shadow-slate-200/60 backdrop-blur">
-          <CardContent className="space-y-4 p-4 md:p-5">
-            <h2 className="text-lg font-black text-slate-950">Pending Work & Readiness</h2>
-            <TextArea label="Pending Samples" value={form.pendingSamples} onChange={(value) => updateField('pendingSamples', value)} placeholder="Specimen IDs, priorities, storage conditions..." />
-            <TextArea label="Pending Tests" value={form.pendingTests} onChange={(value) => updateField('pendingTests', value)} placeholder="Tests awaiting processing, verification, or send-out..." />
-            <TextArea label="Supplies Status" value={form.suppliesStatus} onChange={(value) => updateField('suppliesStatus', value)} placeholder="Reagents, controls, consumables, low stock..." />
-            <TextArea label="General Notes" value={form.notes} onChange={(value) => updateField('notes', value)} placeholder="Any additional handover notes..." />
-          </CardContent>
-        </Card>
-      </div>
-
       <Card className="border-white/70 bg-white/90 shadow-lg shadow-slate-200/60 backdrop-blur">
         <CardContent className="space-y-5 p-4 md:p-5">
           <div>
-            <h2 className="text-lg font-black text-slate-950">CAP/ISO-aligned checklist</h2>
-            <p className="text-sm text-slate-500">Designed for documentation completeness, traceability, and shift accountability.</p>
+            <h2 className="text-lg font-black text-slate-950">تقرير المناوبة / Shift Report</h2>
+            <p className="text-sm text-slate-500">اكتب فقط ملخص المناوبة المطلوب تسليمه للموظف المستلم.</p>
           </div>
-          <div className="grid gap-2 md:grid-cols-2">
-            {Object.entries(checklistLabels).map(([key, label]) => (
-              <label key={key} className="flex items-center gap-3 rounded-2xl border border-slate-100 bg-slate-50 p-3">
-                <input
-                  type="checkbox"
-                  checked={form.checklist[key as keyof HandoverForm['checklist']]}
-                  onChange={(event) =>
-                    setForm((current) => ({
-                      ...current,
-                      checklist: { ...current.checklist, [key]: event.target.checked },
-                    }))
-                  }
-                  className="h-5 w-5 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
-                />
-                <span className="text-sm font-semibold text-slate-700">{label}</span>
-              </label>
-            ))}
-          </div>
+          <TextArea label="تقرير المناوبة" value={form.shiftReport} onChange={(value) => updateField('shiftReport', value)} placeholder="اكتب تقرير المناوبة هنا..." />
 
-          <div className="grid gap-3 md:grid-cols-2">
-            <Input label="Outgoing Signature / Name" value={form.outgoingSignature} onChange={(event) => updateField('outgoingSignature', event.target.value)} placeholder="Outgoing staff confirmation" />
-            <Input label="Incoming Signature / Name" value={form.incomingSignature} onChange={(event) => updateField('incomingSignature', event.target.value)} placeholder="Incoming staff confirmation" />
-          </div>
+          <Input label="التوقيع الإلكتروني للموظف / Employee Electronic Signature" value={form.employeeSignature} onChange={(event) => updateField('employeeSignature', event.target.value)} placeholder="اكتب اسم الموظف كتوقيع إلكتروني" />
 
           <div className="flex flex-wrap justify-end gap-2">
             <Button variant="outline" onClick={() => window.print()}>

@@ -206,15 +206,6 @@ export const exportIndividualPDF = (
   doc.save(`${staff.name.replace(/\s+/g, '_')}_Schedule_${month}.pdf`);
 };
 
-const handoverChecklistLabels: Record<keyof HandoverRecord['checklist'], string> = {
-  patientSafety: 'Patient safety handover completed',
-  criticalResultsCommunicated: 'Critical results communicated/escalated',
-  qcReviewed: 'QC and calibration reviewed',
-  pendingWorkListed: 'Pending samples/tests listed',
-  equipmentIssuesEscalated: 'Equipment issues escalated',
-  documentationComplete: 'Documentation complete and signed',
-};
-
 export const exportHandoverToExcel = (record: HandoverRecord, hospitalName: string) => {
   const dept = getDepartmentById(record.departmentId);
   const rows = [
@@ -222,28 +213,12 @@ export const exportHandoverToExcel = (record: HandoverRecord, hospitalName: stri
     ['Department', dept.name],
     ['Date', dayjs(record.date).format('DD MMMM YYYY')],
     ['Shift', record.shiftCode],
-    ['Outgoing Staff', record.outgoingStaff],
-    ['Incoming Staff', record.incomingStaff],
-    ['Supervisor', record.supervisor],
+    ['المسلم / Outgoing Staff', record.outgoingStaff],
+    ['المستلم / Incoming Staff', record.incomingStaff],
     [],
-    ['Section', 'Details'],
-    ['Instruments Status', record.instrumentsStatus],
-    ['QC / Calibration Status', record.qcStatus],
-    ['Critical Results', record.criticalResults],
-    ['Pending Samples', record.pendingSamples],
-    ['Pending Tests', record.pendingTests],
-    ['Incidents / Deviations', record.incidents],
-    ['Supplies Status', record.suppliesStatus],
-    ['Notes', record.notes],
+    ['تقرير المناوبة / Shift Report', record.notes],
     [],
-    ['CAP/ISO Documentation Checklist', 'Status'],
-    ...Object.entries(record.checklist).map(([key, value]) => [
-      handoverChecklistLabels[key as keyof HandoverRecord['checklist']],
-      value ? 'Completed' : 'Pending',
-    ]),
-    [],
-    ['Outgoing Signature', record.outgoingSignature],
-    ['Incoming Signature', record.incomingSignature],
+    ['التوقيع الإلكتروني للموظف / Employee Electronic Signature', record.outgoingSignature],
     ['Generated At', dayjs().format('DD MMM YYYY HH:mm')],
   ];
 
@@ -273,11 +248,9 @@ export const exportHandoverToPDF = (record: HandoverRecord, hospitalName: string
   autoTable(doc, {
     startY: 32,
     body: [
-      ['Outgoing Staff', record.outgoingStaff || '-'],
-      ['Incoming Staff', record.incomingStaff || '-'],
-      ['Supervisor', record.supervisor || '-'],
-      ['Outgoing Signature', record.outgoingSignature || '-'],
-      ['Incoming Signature', record.incomingSignature || '-'],
+      ['المسلم / Outgoing Staff', record.outgoingStaff || '-'],
+      ['المستلم / Incoming Staff', record.incomingStaff || '-'],
+      ['التوقيع الإلكتروني للموظف', record.outgoingSignature || '-'],
     ],
     styles: { fontSize: 9, cellPadding: 2.2 },
     columnStyles: {
@@ -289,38 +262,14 @@ export const exportHandoverToPDF = (record: HandoverRecord, hospitalName: string
 
   autoTable(doc, {
     startY: (doc as any).lastAutoTable.finalY + 8,
-    head: [['Operational Area', 'Handover Details']],
+    head: [['تقرير المناوبة / Shift Report']],
     body: [
-      ['Instruments Status', record.instrumentsStatus || '-'],
-      ['QC / Calibration Status', record.qcStatus || '-'],
-      ['Critical Results', record.criticalResults || '-'],
-      ['Pending Samples', record.pendingSamples || '-'],
-      ['Pending Tests', record.pendingTests || '-'],
-      ['Incidents / Deviations', record.incidents || '-'],
-      ['Supplies Status', record.suppliesStatus || '-'],
-      ['Notes', record.notes || '-'],
+      [record.notes || '-'],
     ],
     styles: { fontSize: 8.5, cellPadding: 2.2, valign: 'top' },
     headStyles: { fillColor: [26, 115, 232], textColor: 255, fontStyle: 'bold' },
     columnStyles: {
-      0: { fontStyle: 'bold', cellWidth: 45 },
-      1: { cellWidth: 130 },
-    },
-    margin: { left: 14, right: 14 },
-  });
-
-  autoTable(doc, {
-    startY: (doc as any).lastAutoTable.finalY + 8,
-    head: [['CAP/ISO-aligned Checklist', 'Status']],
-    body: Object.entries(record.checklist).map(([key, value]) => [
-      handoverChecklistLabels[key as keyof HandoverRecord['checklist']],
-      value ? 'Completed' : 'Pending',
-    ]),
-    styles: { fontSize: 8.5, cellPadding: 2 },
-    headStyles: { fillColor: [13, 33, 55], textColor: 255, fontStyle: 'bold' },
-    columnStyles: {
-      0: { cellWidth: 130 },
-      1: { halign: 'center', cellWidth: 45 },
+      0: { cellWidth: 175 },
     },
     margin: { left: 14, right: 14 },
   });
@@ -328,6 +277,6 @@ export const exportHandoverToPDF = (record: HandoverRecord, hospitalName: string
   const footerY = doc.internal.pageSize.height - 14;
   doc.setFontSize(8);
   doc.setTextColor(100, 116, 139);
-  doc.text('CAP/ISO-aligned template. Final approval must follow local laboratory quality policy.', 14, footerY);
+  doc.text('Offline shift handover report. Review and approval follow local laboratory policy.', 14, footerY);
   doc.save(`${dept.shortName}_Handover_${record.date}_Shift_${record.shiftCode}.pdf`);
 };
