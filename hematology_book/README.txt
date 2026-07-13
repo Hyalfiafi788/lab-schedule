@@ -25,7 +25,11 @@ Part III — Atlas of Abnormal Cell Morphology (with photos)
  10. Abnormal Red Cells & Inclusions (Howell-Jolly, stippling, bite/blister, NRBC, rouleaux, agglutination)
  11. Abnormal White Cells (blasts & Auer rods, hypersegmented neutrophil, reactive lymphocytes, smudge cells)
  12. Morphology Alert — Cell -> Diagnosis lookup table
- 13. Quick Reference Tables
+Part IV — Beginner's Guide: Reading a Blood Smear (with photos)
+ 13. Step 1 — Making a Good Blood Film (wedge technique, film regions)
+ 14. Step 2 — Microscope Set-up & Scanning (10x/40x/100x, battlement track)
+ 15. Step 3 — A Beginner's Read, Step by Step (8-step routine, good vs bad film)
+ 16. Quick Reference Tables
 
 Notes
 -----

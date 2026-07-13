@@ -131,7 +131,11 @@
     <li><span class="num">10</span> Abnormal Red Cells &amp; Inclusions (with photos)</li>
     <li><span class="num">11</span> Abnormal White Cells (with photos)</li>
     <li><span class="num">12</span> Morphology Alert — Cell → Diagnosis</li>
-    <li><span class="num">13</span> Quick Reference Tables</li>
+    <li style="margin-top:.6em;color:var(--teal);font-weight:700;">Part IV — Beginner's Guide: Reading a Blood Smear</li>
+    <li><span class="num">13</span> Step 1 — Making a Good Blood Film</li>
+    <li><span class="num">14</span> Step 2 — Microscope Set-up &amp; Scanning</li>
+    <li><span class="num">15</span> Step 3 — A Beginner's Read, Step by Step</li>
+    <li><span class="num">16</span> Quick Reference Tables</li>
   </ul>
 
   <div class="callout">
@@ -628,10 +632,140 @@
   <div class="pagefoot"><span>Essentials of Hematology</span><span>Ch.12 — Morphology Alert</span></div>
 </section>
 
-<!-- ===================== SECTION 13 ===================== -->
+<!-- ===================== PART IV / SECTION 13 ===================== -->
+<section class="page">
+  <span class="kicker">Part IV — Beginner's Guide &bull; Chapter 13</span>
+  <h2>13. Step 1 — Making a Good Blood Film</h2>
+  <p class="lead">Everything starts with a good film. A bad smear cannot be rescued — if it is uneven,
+  too thick, or too short, make a new one before you look.</p>
+
+  <h3>The wedge (push) technique</h3>
+  <ol>
+    <li>Place a <strong>small drop</strong> (~2–3 mm) of well-mixed EDTA blood near one end of a clean slide.</li>
+    <li>Bring a <strong>spreader slide</strong> back into the drop at a <strong>30–45° angle</strong> and let the blood spread along its edge.</li>
+    <li>Push forward <strong>smoothly and quickly</strong> in one motion. Do not press down.</li>
+    <li><strong>Air-dry</strong> immediately (wave, do not blow), then stain with Wright / Wright–Giemsa.</li>
+  </ol>
+
+  <figure>
+    <img src="images/smear_making.png" alt="Wedge technique for making a blood smear" />
+    <figcaption><b>Fig 13.1 — The wedge technique.</b> Spreader slide held at ~35°, drawn back into the drop, then pushed
+    forward in one smooth stroke.</figcaption>
+  </figure>
+
+  <div class="grid2">
+    <div>
+      <figure>
+        <img src="images/smear_slide.png" alt="Regions of a finished blood film" />
+        <figcaption><b>Fig 13.2 — The three regions.</b> Thick <em>head</em> &rarr; even <em>body / monolayer</em>
+        &rarr; thin <em>feathered edge (tail)</em>.</figcaption>
+      </figure>
+    </div>
+    <div>
+      <div class="callout">
+        <span class="t">Angle rule of thumb</span>
+        Blood too <strong>thick</strong> (high Hct) → use a <em>smaller</em> angle / faster push.
+        Blood too <strong>thin</strong> (anemia) → use a <em>larger</em> angle / slower push.
+      </div>
+      <div class="callout warn">
+        <span class="t">Where you will read</span>
+        The <strong>monolayer</strong>, just before the feathered edge, is the only place morphology is reliable.
+        The head is too thick; the very edge distorts the cells.
+      </div>
+    </div>
+  </div>
+  <div class="pagefoot"><span>Essentials of Hematology</span><span>Ch.13 — Making a Film</span></div>
+</section>
+
+<!-- ===================== SECTION 14 ===================== -->
+<section class="page">
+  <span class="kicker">Part IV — Beginner's Guide &bull; Chapter 14</span>
+  <h2>14. Step 2 — Microscope Set-up &amp; Scanning</h2>
+  <p class="lead">Move from low to high power, and scan in a fixed pattern so you never count the same cell twice
+  or miss an area.</p>
+
+  <div class="grid2">
+    <div>
+      <h3>Magnification ladder</h3>
+      <ul>
+        <li><strong>10× (low power):</strong> overall quality, cell distribution, clumps, and to find the monolayer. Estimate WBC numbers.</li>
+        <li><strong>40× (high dry):</strong> WBC differential and general red cell morphology.</li>
+        <li><strong>100× (oil immersion):</strong> fine detail — inclusions, parasites, platelet morphology. Add a drop of oil directly on the film.</li>
+      </ul>
+      <figure>
+        <img src="images/microscope.png" alt="Laboratory light microscope" />
+        <figcaption><b>Fig 14.1 — The light microscope.</b> Rotate objectives from short (10×) to long (100× oil);
+        use coarse focus only on low power.</figcaption>
+      </figure>
+    </div>
+    <div>
+      <h3>The battlement scan</h3>
+      <p>In the monolayer, move the slide in a <strong>battlement (crenellation) track</strong> — up, across, down, across —
+      so every field is new. This gives a representative differential.</p>
+      <svg viewBox="0 0 300 210" xmlns="http://www.w3.org/2000/svg" style="width:100%;background:#fff;border:1px solid var(--line);border-radius:12px;">
+        <defs>
+          <marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#0e7c86"/>
+          </marker>
+        </defs>
+        <rect x="10" y="10" width="280" height="190" rx="8" fill="#f3f7fa" stroke="#d9e2ea"/>
+        <polyline points="40,150 40,70 90,70 90,150 140,150 140,70 190,70 190,150 240,150 240,70"
+          fill="none" stroke="#0e7c86" stroke-width="3" marker-end="url(#ar2)"/>
+        <circle cx="40" cy="150" r="5" fill="#c62828"/>
+        <text x="40" y="175" font-size="11" fill="#5b6b7b" text-anchor="middle" font-family="Segoe UI, Arial">start</text>
+        <text x="150" y="30" font-size="12" fill="#0f2f4a" text-anchor="middle" font-family="Segoe UI, Arial" font-weight="700">Battlement track in the monolayer</text>
+      </svg>
+      <div class="callout">
+        <span class="t">Counting tip</span>
+        Count <strong>100 white cells</strong> in this track for a manual differential, keeping a tally of each type.
+      </div>
+    </div>
+  </div>
+  <div class="pagefoot"><span>Essentials of Hematology</span><span>Ch.14 — Set-up &amp; Scanning</span></div>
+</section>
+
+<!-- ===================== SECTION 15 ===================== -->
+<section class="page">
+  <span class="kicker">Part IV — Beginner's Guide &bull; Chapter 15</span>
+  <h2>15. Step 3 — A Beginner's Read, Step by Step</h2>
+  <p class="lead">Always read in the same order. A fixed routine means you never forget a cell line.</p>
+
+  <table>
+    <tr><th>#</th><th>Step</th><th>Power</th><th>What you are asking</th></tr>
+    <tr><td>1</td><td>Check smear quality &amp; staining</td><td>10×</td><td>Is it even? Well stained? Find the monolayer.</td></tr>
+    <tr><td>2</td><td>Scan cell distribution</td><td>10×</td><td>Any clumps, rouleaux, or large abnormal cells?</td></tr>
+    <tr><td>3</td><td>Estimate WBC number</td><td>10×</td><td>Roughly increased, normal, or decreased?</td></tr>
+    <tr><td>4</td><td>Red cell morphology</td><td>40×</td><td>Size, colour, shape, inclusions (vs Part II).</td></tr>
+    <tr><td>5</td><td>WBC differential (100 cells)</td><td>40–100×</td><td>Proportion of each leukocyte; any left shift?</td></tr>
+    <tr><td>6</td><td>Look for abnormal WBCs</td><td>100×</td><td>Blasts, Auer rods, atypical lymphocytes (Part III).</td></tr>
+    <tr><td>7</td><td>Estimate platelets</td><td>100×</td><td>Number, size, clumps (× ~15–20 per oil field).</td></tr>
+    <tr><td>8</td><td>Correlate &amp; report</td><td>—</td><td>Does it match the analyser CBC? Flag discrepancies.</td></tr>
+  </table>
+
+  <figure>
+    <img src="images/smear_good_bad.png" alt="Good versus bad blood smear" />
+    <figcaption><b>Fig 15.1 — Good vs bad film.</b> Left: smooth, even, with a gradual feathered edge — <em>read this</em>.
+    Right: ridges, holes and an abrupt edge — <em>remake it</em>.</figcaption>
+  </figure>
+
+  <div class="grid2">
+    <div class="callout warn">
+      <span class="t">Beginner pitfalls</span>
+      Reading in the thick head; using oil before finding the monolayer; mistaking stain precipitate or platelets on top
+      of red cells for inclusions; reporting a low platelet count without checking for clumps.
+    </div>
+    <div class="callout">
+      <span class="t">Golden habit</span>
+      Same order, every time: quality → distribution → red cells → white cells → platelets → correlate.
+    </div>
+  </div>
+  <div class="pagefoot"><span>Essentials of Hematology</span><span>Ch.15 — Step-by-Step Read</span></div>
+</section>
+
+<!-- ===================== SECTION 16 ===================== -->
 <section class="page">
   <span class="kicker">Reference</span>
-  <h2>13. Quick Reference Tables</h2>
+  <h2>16. Quick Reference Tables</h2>
 
   <h3>Morphology → Think of</h3>
   <table>
