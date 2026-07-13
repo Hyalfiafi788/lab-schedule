@@ -29,7 +29,12 @@ Part IV — Beginner's Guide: Reading a Blood Smear (with photos)
  13. Step 1 — Making a Good Blood Film (wedge technique, film regions)
  14. Step 2 — Microscope Set-up & Scanning (10x/40x/100x, battlement track)
  15. Step 3 — A Beginner's Read, Step by Step (8-step routine, good vs bad film)
- 16. Quick Reference Tables
+Part V — Interpreting the CBC & Blood Parasites (with photos)
+ 16. Reading the Full Blood Count (parameters & reference ranges)
+ 17. The Anemia Approach by MCV (micro/normo/macrocytic + reticulocytes)
+ 18. Interpreting White Cell & Platelet Counts (causes tables, pancytopenia)
+ 19. Blood Parasites — Malaria on the Film (ring forms, gametocyte, thick vs thin film)
+ 20. Quick Reference Tables
 
 Notes
 -----

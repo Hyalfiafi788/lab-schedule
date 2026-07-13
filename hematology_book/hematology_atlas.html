@@ -135,7 +135,12 @@
     <li><span class="num">13</span> Step 1 — Making a Good Blood Film</li>
     <li><span class="num">14</span> Step 2 — Microscope Set-up &amp; Scanning</li>
     <li><span class="num">15</span> Step 3 — A Beginner's Read, Step by Step</li>
-    <li><span class="num">16</span> Quick Reference Tables</li>
+    <li style="margin-top:.6em;color:var(--teal);font-weight:700;">Part V — Interpreting the CBC &amp; Blood Parasites</li>
+    <li><span class="num">16</span> Reading the Full Blood Count (CBC)</li>
+    <li><span class="num">17</span> The Anemia Approach by MCV</li>
+    <li><span class="num">18</span> Interpreting White Cell &amp; Platelet Counts</li>
+    <li><span class="num">19</span> Blood Parasites — Malaria on the Film (with photos)</li>
+    <li><span class="num">20</span> Quick Reference Tables</li>
   </ul>
 
   <div class="callout">
@@ -762,10 +767,189 @@
   <div class="pagefoot"><span>Essentials of Hematology</span><span>Ch.15 — Step-by-Step Read</span></div>
 </section>
 
-<!-- ===================== SECTION 16 ===================== -->
+<!-- ===================== PART V / SECTION 16 ===================== -->
+<section class="page">
+  <span class="kicker">Part V — Interpreting the CBC &bull; Chapter 16</span>
+  <h2>16. Reading the Full Blood Count (CBC)</h2>
+  <p class="lead">The CBC is the numerical companion to the film. Learn the core parameters, their adult reference
+  ranges, and the one-line meaning of each.</p>
+
+  <table>
+    <tr><th>Parameter</th><th>Typical adult range*</th><th>Meaning / raised–low</th></tr>
+    <tr><td><strong>Hb</strong> (hemoglobin)</td><td>M 130–170, F 120–155 g/L</td><td>Oxygen-carrying capacity; low = anemia.</td></tr>
+    <tr><td><strong>RBC</strong> count</td><td>4.2–6.0 ×10¹²/L</td><td>Red cell number.</td></tr>
+    <tr><td><strong>Hct / PCV</strong></td><td>M 0.40–0.52, F 0.36–0.46</td><td>Fraction of blood that is red cells.</td></tr>
+    <tr><td><strong>MCV</strong></td><td>80–100 fL</td><td>Average red cell size (micro / normo / macrocytic).</td></tr>
+    <tr><td><strong>MCH</strong></td><td>27–33 pg</td><td>Average Hb per cell.</td></tr>
+    <tr><td><strong>MCHC</strong></td><td>320–360 g/L</td><td>Hb concentration; high → spherocytes.</td></tr>
+    <tr><td><strong>RDW</strong></td><td>11.5–14.5 %</td><td>Variation in size (anisocytosis).</td></tr>
+    <tr><td><strong>WBC</strong></td><td>4.0–11.0 ×10⁹/L</td><td>Total white cells; high = leukocytosis.</td></tr>
+    <tr><td><strong>Platelets</strong></td><td>150–450 ×10⁹/L</td><td>Low = thrombocytopenia (bleeding risk).</td></tr>
+    <tr><td><strong>Reticulocytes</strong></td><td>0.5–2.5 % (25–100 ×10⁹/L)</td><td>Young red cells; marrow response to anemia.</td></tr>
+  </table>
+  <p class="small">*Ranges vary by analyser, age, sex, altitude, and pregnancy — always use your own laboratory's values.</p>
+
+  <div class="grid2">
+    <div class="callout">
+      <span class="t">The indices are derived</span>
+      MCV, MCH and MCHC are calculated from Hb, Hct and RBC. They convert raw counts into a description of
+      <em>average</em> cell size and colour — exactly what you confirm on the film.
+    </div>
+    <div class="callout warn">
+      <span class="t">Always correlate</span>
+      A surprising CBC (e.g. very low platelets, very high MCV) should trigger a film review before it is reported —
+      artefacts and clumps are common.
+    </div>
+  </div>
+  <div class="pagefoot"><span>Essentials of Hematology</span><span>Ch.16 — Reading the CBC</span></div>
+</section>
+
+<!-- ===================== SECTION 17 ===================== -->
+<section class="page">
+  <span class="kicker">Part V — Interpreting the CBC &bull; Chapter 17</span>
+  <h2>17. The Anemia Approach by MCV</h2>
+  <p class="lead">When Hb is low, the fastest first step is to split anemia by <strong>MCV</strong>, then add the
+  <strong>reticulocyte count</strong> to see whether the marrow is responding.</p>
+
+  <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif" style="width:100%;background:#fff;border:1px solid var(--line);border-radius:12px;">
+    <defs>
+      <marker id="ar3" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#0f2f4a"/></marker>
+    </defs>
+    <rect x="270" y="14" width="160" height="34" rx="8" fill="#0f2f4a"/>
+    <text x="350" y="36" fill="#fff" font-size="15" font-weight="700" text-anchor="middle">Low Hb = anemia</text>
+
+    <!-- three MCV branches -->
+    <g font-size="12.5" text-anchor="middle">
+      <rect x="20" y="90" width="190" height="34" rx="8" fill="#eaf3f4" stroke="#0e7c86"/>
+      <text x="115" y="112" fill="#0f2f4a" font-weight="700">Microcytic (MCV &lt;80)</text>
+      <rect x="255" y="90" width="190" height="34" rx="8" fill="#dfeaf2" stroke="#0f2f4a"/>
+      <text x="350" y="112" fill="#0f2f4a" font-weight="700">Normocytic (80–100)</text>
+      <rect x="490" y="90" width="190" height="34" rx="8" fill="#fdecec" stroke="#c62828"/>
+      <text x="585" y="112" fill="#0f2f4a" font-weight="700">Macrocytic (MCV &gt;100)</text>
+    </g>
+
+    <!-- causes -->
+    <g font-size="11.5" text-anchor="middle" fill="#1b2733">
+      <rect x="20" y="150" width="190" height="120" rx="8" fill="#f3f7fa" stroke="#d9e2ea"/>
+      <text x="115" y="172">Iron deficiency</text>
+      <text x="115" y="192">Thalassemia</text>
+      <text x="115" y="212">Anemia of chronic</text>
+      <text x="115" y="228">disease (some)</text>
+      <text x="115" y="252">Sideroblastic</text>
+
+      <rect x="255" y="150" width="190" height="120" rx="8" fill="#f3f7fa" stroke="#d9e2ea"/>
+      <text x="350" y="170" font-weight="700" fill="#0e7c86">Check retics</text>
+      <text x="350" y="192">High retic → hemolysis /</text>
+      <text x="350" y="208">acute blood loss</text>
+      <text x="350" y="234">Low retic → marrow,</text>
+      <text x="350" y="250">chronic disease, renal</text>
+
+      <rect x="490" y="150" width="190" height="120" rx="8" fill="#f3f7fa" stroke="#d9e2ea"/>
+      <text x="585" y="172" font-weight="700">Megaloblastic:</text>
+      <text x="585" y="190">B12 / folate deficiency</text>
+      <text x="585" y="216" font-weight="700">Non-megaloblastic:</text>
+      <text x="585" y="234">alcohol, liver disease,</text>
+      <text x="585" y="250">hypothyroid, myelodysplasia</text>
+    </g>
+
+    <g stroke="#0f2f4a" stroke-width="2" fill="none" marker-end="url(#ar3)">
+      <line x1="300" y1="48" x2="130" y2="88"/>
+      <line x1="350" y1="48" x2="350" y2="88"/>
+      <line x1="400" y1="48" x2="570" y2="88"/>
+      <line x1="115" y1="124" x2="115" y2="148"/>
+      <line x1="350" y1="124" x2="350" y2="148"/>
+      <line x1="585" y1="124" x2="585" y2="148"/>
+    </g>
+  </svg>
+  <p class="small" style="text-align:center;">Fig 17.1 — First-pass classification of anemia. Confirm the suspected cause on the film
+  (e.g. microcytic + hypochromic → iron deficiency; macro-ovalocytes + hypersegmented neutrophils → B12/folate).</p>
+
+  <div class="callout">
+    <span class="t">Reticulocytes decide "why"</span>
+    In normocytic anemia especially, a <strong>high</strong> reticulocyte count points to loss/destruction (bleeding, hemolysis),
+    while a <strong>low</strong> count points to reduced production (marrow, chronic disease, renal failure).
+  </div>
+  <div class="pagefoot"><span>Essentials of Hematology</span><span>Ch.17 — Anemia by MCV</span></div>
+</section>
+
+<!-- ===================== SECTION 18 ===================== -->
+<section class="page">
+  <span class="kicker">Part V — Interpreting the CBC &bull; Chapter 18</span>
+  <h2>18. Interpreting White Cell &amp; Platelet Counts</h2>
+  <p class="lead">Read the total count, then the differential, then the film. The pattern usually points to a cause.</p>
+
+  <h3>White cells</h3>
+  <table>
+    <tr><th>Finding</th><th>Definition</th><th>Common causes</th></tr>
+    <tr><td><strong>Neutrophilia</strong></td><td>Neutrophils high</td><td>Bacterial infection, inflammation, steroids, stress</td></tr>
+    <tr><td><strong>Neutropenia</strong></td><td>Neutrophils low</td><td>Viral, drugs/chemo, marrow failure, severe sepsis</td></tr>
+    <tr><td><strong>Lymphocytosis</strong></td><td>Lymphocytes high</td><td>Viral infection, pertussis, CLL</td></tr>
+    <tr><td><strong>Eosinophilia</strong></td><td>Eosinophils high</td><td>Allergy, parasites, drug reaction</td></tr>
+    <tr><td><strong>Monocytosis</strong></td><td>Monocytes high</td><td>Chronic infection (e.g. TB), recovery phase</td></tr>
+    <tr><td><strong>Left shift / blasts</strong></td><td>Immature forms</td><td>Severe infection; leukemia (blasts — urgent)</td></tr>
+  </table>
+
+  <h3>Platelets</h3>
+  <table>
+    <tr><th>Finding</th><th>Common causes</th></tr>
+    <tr><td><strong>Thrombocytopenia</strong> (low)</td><td>↓Production (marrow), ↑destruction (ITP, DIC, TTP), hypersplenism; exclude EDTA clumps</td></tr>
+    <tr><td><strong>Thrombocytosis</strong> (high)</td><td>Reactive (infection, iron deficiency, post-splenectomy) or clonal (essential thrombocythemia)</td></tr>
+  </table>
+
+  <div class="callout warn">
+    <span class="t">Pancytopenia</span>
+    Low in all three lines (Hb, WBC, platelets) is a red flag — think marrow failure/infiltration, B12/folate deficiency,
+    hypersplenism, or aplastic anemia. Always warrants film review and escalation.
+  </div>
+  <div class="pagefoot"><span>Essentials of Hematology</span><span>Ch.18 — WBC &amp; Platelets</span></div>
+</section>
+
+<!-- ===================== SECTION 19 ===================== -->
+<section class="page">
+  <span class="kicker">Part V — Interpreting the CBC &bull; Chapter 19</span>
+  <h2>19. Blood Parasites — Malaria on the Film</h2>
+  <p class="lead">The blood film is still the reference method for diagnosing malaria. Examine a well-stained film
+  carefully at oil immersion — parasites live <em>inside</em> the red cells.</p>
+
+  <div class="grid2">
+    <div>
+      <figure>
+        <img src="images/malaria_rings.png" alt="Plasmodium falciparum ring forms" />
+        <figcaption><b>Fig 19.1 — Ring-form trophozoites (P. falciparum).</b> Delicate blue rings with a red chromatin dot;
+        note <em>double rings</em> and edge-hugging <em>appliqué</em> forms.</figcaption>
+      </figure>
+    </div>
+    <div>
+      <figure>
+        <img src="images/malaria_gametocyte.png" alt="Plasmodium falciparum gametocyte" />
+        <figcaption><b>Fig 19.2 — Gametocyte (P. falciparum).</b> The characteristic crescent / banana shape —
+        diagnostic of the species.</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div>
+      <h4>How the lab looks</h4>
+      <ul>
+        <li><strong>Thick film:</strong> concentrates parasites — best to <em>detect</em> infection.</li>
+        <li><strong>Thin film:</strong> preserves red cell detail — best to <em>speciate</em> and estimate parasitemia.</li>
+        <li>Report the <strong>species</strong> and the <strong>% parasitemia</strong> (parasitized red cells per 100).</li>
+      </ul>
+    </div>
+    <div class="callout warn">
+      <span class="t">Why species matters</span>
+      <em>P. falciparum</em> can cause high parasitemia and severe/cerebral malaria — high parasitemia or falciparum
+      is a medical emergency. A single negative film does not exclude malaria; repeat over 48–72 h if suspicion is high.
+    </div>
+  </div>
+  <div class="pagefoot"><span>Essentials of Hematology</span><span>Ch.19 — Malaria</span></div>
+</section>
+
+<!-- ===================== SECTION 20 ===================== -->
 <section class="page">
   <span class="kicker">Reference</span>
-  <h2>16. Quick Reference Tables</h2>
+  <h2>20. Quick Reference Tables</h2>
 
   <h3>Morphology → Think of</h3>
   <table>
