@@ -21,7 +21,11 @@ Part II — Coagulation
   7. Secondary Hemostasis — The Coagulation Cascade (intrinsic / extrinsic / common)
   8. Anticoagulants & Fibrinolysis
   9. Coagulation Laboratory Tests (PT/INR, aPTT, TT, fibrinogen, D-dimer)
- 10. Quick Reference Tables
+Part III — Atlas of Abnormal Cell Morphology (with photos)
+ 10. Abnormal Red Cells & Inclusions (Howell-Jolly, stippling, bite/blister, NRBC, rouleaux, agglutination)
+ 11. Abnormal White Cells (blasts & Auer rods, hypersegmented neutrophil, reactive lymphocytes, smudge cells)
+ 12. Morphology Alert — Cell -> Diagnosis lookup table
+ 13. Quick Reference Tables
 
 Notes
 -----
