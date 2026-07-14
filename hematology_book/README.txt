@@ -34,7 +34,13 @@ Part V — Interpreting the CBC & Blood Parasites (with photos)
  17. The Anemia Approach by MCV (micro/normo/macrocytic + reticulocytes)
  18. Interpreting White Cell & Platelet Counts (causes tables, pancytopenia)
  19. Blood Parasites — Malaria on the Film (ring forms, gametocyte, thick vs thin film)
- 20. Quick Reference Tables
+Part VI — Hematological Malignancies / Blood Cancers (with photos)
+ 20. Overview & Classification (lineage x tempo grid; leukemia/lymphoma/myeloma)
+ 21. Acute Leukemias — AML & ALL (blasts, Auer rods, lymphoblasts)
+ 22. Chronic Leukemias — CML & CLL (granulocyte spectrum, smudge cells)
+ 23. Lymphomas & Plasma Cell Disorders (Reed-Sternberg cell, myeloma plasma cells)
+ 24. Myeloproliferative & Myelodysplastic Neoplasms (PV/ET/PMF; MDS dysplasia)
+ 25. Quick Reference Tables
 
 Notes
 -----

@@ -79,7 +79,7 @@
   tr:nth-child(even) td{background:var(--soft);}
 
   .toc a{color:var(--ink);text-decoration:none;}
-  .toc li{margin:.35em 0;font-size:12.5pt;}
+  .toc li{margin:.12em 0;font-size:11pt;}
   .toc .num{color:var(--teal);font-weight:700;margin-right:10px;}
 
   .pill{display:inline-block;background:var(--chip);color:var(--teal);border-radius:20px;
@@ -118,10 +118,12 @@
   <span class="kicker">Contents</span>
   <h2>Table of Contents</h2>
   <ul class="toc" style="list-style:none;padding-left:0;">
+    <li style="color:var(--teal);font-weight:700;">Part I — Blood Cell Morphology</li>
     <li><span class="num">1</span> How to Read a Peripheral Blood Smear</li>
     <li><span class="num">2</span> Red Blood Cell Morphology</li>
     <li><span class="num">3</span> White Blood Cell Morphology</li>
     <li><span class="num">4</span> Platelet Morphology</li>
+    <li style="margin-top:.6em;color:var(--teal);font-weight:700;">Part II — Coagulation</li>
     <li><span class="num">5</span> Overview of Hemostasis</li>
     <li><span class="num">6</span> Primary Hemostasis — The Platelet Plug</li>
     <li><span class="num">7</span> Secondary Hemostasis — The Coagulation Cascade</li>
@@ -140,15 +142,18 @@
     <li><span class="num">17</span> The Anemia Approach by MCV</li>
     <li><span class="num">18</span> Interpreting White Cell &amp; Platelet Counts</li>
     <li><span class="num">19</span> Blood Parasites — Malaria on the Film (with photos)</li>
-    <li><span class="num">20</span> Quick Reference Tables</li>
+    <li style="margin-top:.6em;color:var(--teal);font-weight:700;">Part VI — Hematological Malignancies (Blood Cancers)</li>
+    <li><span class="num">20</span> Overview &amp; Classification of Blood Cancers</li>
+    <li><span class="num">21</span> Acute Leukemias — AML &amp; ALL (with photos)</li>
+    <li><span class="num">22</span> Chronic Leukemias — CML &amp; CLL (with photos)</li>
+    <li><span class="num">23</span> Lymphomas &amp; Plasma Cell Disorders (with photos)</li>
+    <li><span class="num">24</span> Myeloproliferative &amp; Myelodysplastic Neoplasms (with photos)</li>
+    <li><span class="num">25</span> Quick Reference Tables</li>
   </ul>
 
-  <div class="callout">
-    <span class="t">How to use this atlas</span>
-    Part I (Morphology) trains the eye on what normal and abnormal blood cells look like.
-    Part II (Coagulation) explains how the body forms and dissolves a clot, and how the lab measures it.
-    Each topic is kept short: read the note, study the figure, then use the reference tables to revise.
-  </div>
+  <p class="small" style="margin-top:14px;">Six parts build up in order — morphology, coagulation, an abnormal-cell atlas,
+  a beginner's smear-reading guide, CBC interpretation &amp; parasites, and blood cancers. Read the note, study the
+  figure, then revise with the reference tables.</p>
   <div class="pagefoot"><span>Essentials of Hematology</span><span>Contents</span></div>
 </section>
 
@@ -946,10 +951,215 @@
   <div class="pagefoot"><span>Essentials of Hematology</span><span>Ch.19 — Malaria</span></div>
 </section>
 
-<!-- ===================== SECTION 20 ===================== -->
+<!-- ===================== PART VI / SECTION 20 ===================== -->
+<section class="page">
+  <span class="kicker">Part VI — Blood Cancers &bull; Chapter 20</span>
+  <h2>20. Overview &amp; Classification of Blood Cancers</h2>
+  <p class="lead">Hematological malignancies are clonal cancers of blood-forming cells. Two questions organise them all:
+  <strong>which lineage?</strong> (myeloid vs lymphoid) and <strong>how fast?</strong> (acute vs chronic).</p>
+
+  <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif" style="width:100%;background:#fff;border:1px solid var(--line);border-radius:12px;">
+    <!-- axis labels -->
+    <text x="360" y="24" text-anchor="middle" font-size="14" font-weight="700" fill="#0f2f4a">Lineage &rarr;</text>
+    <text x="350" y="44" text-anchor="middle" font-size="12.5" font-weight="700" fill="#0e7c86">Myeloid</text>
+    <text x="565" y="44" text-anchor="middle" font-size="12.5" font-weight="700" fill="#c62828">Lymphoid</text>
+    <text x="30" y="120" font-size="12.5" font-weight="700" fill="#0f2f4a" transform="rotate(-90 30 120)">Acute</text>
+    <text x="30" y="230" font-size="12.5" font-weight="700" fill="#0f2f4a" transform="rotate(-90 30 230)">Chronic</text>
+
+    <!-- quadrants -->
+    <g font-size="12.5">
+      <rect x="240" y="55" width="230" height="105" rx="8" fill="#eaf3f4" stroke="#0e7c86"/>
+      <text x="355" y="88" text-anchor="middle" font-weight="700" fill="#0f2f4a">AML</text>
+      <text x="355" y="110" text-anchor="middle" fill="#1b2733">Acute myeloid leukemia</text>
+      <text x="355" y="132" text-anchor="middle" fill="#5b6b7b" font-size="11">Myeloblasts &plusmn; Auer rods</text>
+
+      <rect x="480" y="55" width="200" height="105" rx="8" fill="#fdecec" stroke="#c62828"/>
+      <text x="580" y="88" text-anchor="middle" font-weight="700" fill="#0f2f4a">ALL</text>
+      <text x="580" y="110" text-anchor="middle" fill="#1b2733">Acute lymphoblastic</text>
+      <text x="580" y="132" text-anchor="middle" fill="#5b6b7b" font-size="11">Lymphoblasts; children</text>
+
+      <rect x="240" y="175" width="230" height="105" rx="8" fill="#eaf3f4" stroke="#0e7c86"/>
+      <text x="355" y="208" text-anchor="middle" font-weight="700" fill="#0f2f4a">CML + MPN</text>
+      <text x="355" y="230" text-anchor="middle" fill="#1b2733">Chronic myeloid; PV, ET, PMF</text>
+      <text x="355" y="252" text-anchor="middle" fill="#5b6b7b" font-size="11">Mature myeloid excess</text>
+
+      <rect x="480" y="175" width="200" height="105" rx="8" fill="#fdecec" stroke="#c62828"/>
+      <text x="580" y="208" text-anchor="middle" font-weight="700" fill="#0f2f4a">CLL + lymphoma</text>
+      <text x="580" y="230" text-anchor="middle" fill="#1b2733">Chronic lymphocytic;</text>
+      <text x="580" y="248" text-anchor="middle" fill="#1b2733">Hodgkin / NHL; myeloma</text>
+    </g>
+  </svg>
+  <p class="small" style="text-align:center;">Fig 20.1 — The lineage &times; tempo grid. <strong>Acute</strong> = immature <em>blasts</em> that fail to mature (rapid, aggressive);
+  <strong>chronic</strong> = accumulation of more <em>mature</em> cells (slower).</p>
+
+  <div class="grid2">
+    <div class="callout">
+      <span class="t">Leukemia vs lymphoma vs myeloma</span>
+      <strong>Leukemia</strong> — primarily in blood/marrow. <strong>Lymphoma</strong> — solid masses in lymph nodes/tissue.
+      <strong>Myeloma</strong> — malignant plasma cells in marrow making one (monoclonal) antibody.
+    </div>
+    <div class="callout warn">
+      <span class="t">Diagnosis is multimodal</span>
+      Morphology raises the suspicion; definitive diagnosis needs <strong>flow cytometry</strong> (immunophenotype),
+      <strong>cytogenetics/molecular</strong> (e.g. BCR-ABL1), and often marrow biopsy.
+    </div>
+  </div>
+  <div class="pagefoot"><span>Essentials of Hematology</span><span>Ch.20 — Classification</span></div>
+</section>
+
+<!-- ===================== SECTION 21 ===================== -->
+<section class="page">
+  <span class="kicker">Part VI — Blood Cancers &bull; Chapter 21</span>
+  <h2>21. Acute Leukemias — AML &amp; ALL</h2>
+  <p class="lead">Acute leukemias are defined by <strong>&ge;20% blasts</strong> in blood or marrow. They present rapidly with
+  the consequences of marrow failure: anemia, infection (neutropenia) and bleeding (thrombocytopenia).</p>
+
+  <div class="grid2">
+    <div>
+      <figure>
+        <img src="images/abn_blasts_auer.png" alt="AML myeloblasts with Auer rods" />
+        <figcaption><b>Fig 21.1 — AML.</b> Myeloblasts with fine chromatin, nucleoli, and diagnostic red
+        <em>Auer rods</em>.</figcaption>
+      </figure>
+      <p class="small"><strong>AML</strong> — mostly adults; may show gum infiltration; APL subtype is a coagulation emergency (DIC).</p>
+    </div>
+    <div>
+      <figure>
+        <img src="images/tumor_all_lymphoblasts.png" alt="ALL lymphoblasts" />
+        <figcaption><b>Fig 21.2 — ALL.</b> Monotonous lymphoblasts, high N:C ratio, scant cytoplasm, no Auer rods.</figcaption>
+      </figure>
+      <p class="small"><strong>ALL</strong> — commonest childhood cancer; may involve CNS and (in boys) testes.</p>
+    </div>
+  </div>
+
+  <table>
+    <tr><th>Feature</th><th>AML</th><th>ALL</th></tr>
+    <tr><td>Typical age</td><td>Adults</td><td>Children (peak 2–5 y)</td></tr>
+    <tr><td>Blast clue</td><td>Auer rods, granules</td><td>No Auer rods, scant cytoplasm</td></tr>
+    <tr><td>Lineage markers</td><td>MPO+, CD13/CD33</td><td>TdT+, CD19/CD10 (B) or CD3 (T)</td></tr>
+  </table>
+
+  <div class="callout warn">
+    <span class="t">Emergency</span>
+    Suspected acute leukemia (many blasts, pancytopenia, or blasts with Auer rods) must be flagged and referred
+    the same day — some subtypes deteriorate within hours.
+  </div>
+  <div class="pagefoot"><span>Essentials of Hematology</span><span>Ch.21 — Acute Leukemias</span></div>
+</section>
+
+<!-- ===================== SECTION 22 ===================== -->
+<section class="page">
+  <span class="kicker">Part VI — Blood Cancers &bull; Chapter 22</span>
+  <h2>22. Chronic Leukemias — CML &amp; CLL</h2>
+  <p class="lead">Chronic leukemias accumulate relatively <strong>mature</strong> cells, so they are often found on a routine CBC
+  in a well-looking patient. The two big ones are myeloid (CML) and lymphoid (CLL).</p>
+
+  <div class="grid2">
+    <div>
+      <figure>
+        <img src="images/tumor_cml.png" alt="Chronic myeloid leukemia smear" />
+        <figcaption><b>Fig 22.1 — CML.</b> Marked leukocytosis with the <em>full spectrum</em> of maturing granulocytes,
+        plus basophilia and eosinophilia.</figcaption>
+      </figure>
+      <p class="small"><strong>CML</strong> — driven by <strong>BCR-ABL1</strong> (Philadelphia chromosome); treated with
+      tyrosine-kinase inhibitors. Can transform to a blast crisis.</p>
+    </div>
+    <div>
+      <figure>
+        <img src="images/abn_smudge_cells.png" alt="Chronic lymphocytic leukemia with smudge cells" />
+        <figcaption><b>Fig 22.2 — CLL.</b> Numerous small mature lymphocytes with fragile <em>smudge (smear) cells</em>.</figcaption>
+      </figure>
+      <p class="small"><strong>CLL</strong> — commonest adult leukemia in the West; elderly; often asymptomatic lymphocytosis
+      &plusmn; lymphadenopathy.</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <span class="t">Key contrast</span>
+    CML = <em>too many maturing myeloid cells</em> across all stages; CLL = <em>too many identical mature lymphocytes</em>.
+    Confirm CML with BCR-ABL1 and CLL with flow cytometry.
+  </div>
+  <div class="pagefoot"><span>Essentials of Hematology</span><span>Ch.22 — Chronic Leukemias</span></div>
+</section>
+
+<!-- ===================== SECTION 23 ===================== -->
+<section class="page">
+  <span class="kicker">Part VI — Blood Cancers &bull; Chapter 23</span>
+  <h2>23. Lymphomas &amp; Plasma Cell Disorders</h2>
+  <p class="lead">These are cancers of lymphoid cells that mainly form <strong>tissue masses</strong> (lymphomas) or fill the
+  marrow with <strong>plasma cells</strong> (myeloma), rather than flooding the blood.</p>
+
+  <div class="grid2">
+    <div>
+      <figure>
+        <img src="images/tumor_reed_sternberg.png" alt="Reed-Sternberg cell in Hodgkin lymphoma" />
+        <figcaption><b>Fig 23.1 — Reed–Sternberg cell.</b> Large binucleate &ldquo;owl-eye&rdquo; cell — the hallmark of
+        <em>Hodgkin lymphoma</em>.</figcaption>
+      </figure>
+    </div>
+    <div>
+      <figure>
+        <img src="images/tumor_myeloma.png" alt="Plasma cells in multiple myeloma with rouleaux" />
+        <figcaption><b>Fig 23.2 — Multiple myeloma.</b> Abnormal plasma cells (eccentric nucleus, perinuclear hof)
+        with background <em>rouleaux</em>.</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <h3>Quick differentiation</h3>
+  <table>
+    <tr><th>Disease</th><th>Hallmark</th><th>Typical clues</th></tr>
+    <tr><td><strong>Hodgkin lymphoma</strong></td><td>Reed–Sternberg cells</td><td>Contiguous nodes, young adults, B-symptoms</td></tr>
+    <tr><td><strong>Non-Hodgkin lymphoma</strong></td><td>Diverse B/T clones (no RS cells)</td><td>Widespread nodes; may spill into blood</td></tr>
+    <tr><td><strong>Multiple myeloma</strong></td><td>Clonal plasma cells + M-protein</td><td>CRAB: hyperCalcemia, Renal, Anemia, Bone lesions; rouleaux</td></tr>
+  </table>
+  <div class="pagefoot"><span>Essentials of Hematology</span><span>Ch.23 — Lymphoma &amp; Myeloma</span></div>
+</section>
+
+<!-- ===================== SECTION 24 ===================== -->
+<section class="page">
+  <span class="kicker">Part VI — Blood Cancers &bull; Chapter 24</span>
+  <h2>24. Myeloproliferative &amp; Myelodysplastic Neoplasms</h2>
+  <p class="lead">Two related myeloid groups: <strong>MPN</strong> — the marrow makes <em>too many</em> mature cells;
+  <strong>MDS</strong> — the marrow makes <em>dysplastic, ineffective</em> cells (cytopenias despite a busy marrow).</p>
+
+  <h3>Myeloproliferative neoplasms (MPN)</h3>
+  <table>
+    <tr><th>Neoplasm</th><th>Overproduced cell</th><th>Clue</th></tr>
+    <tr><td><strong>Polycythemia vera</strong></td><td>Red cells</td><td>High Hb/Hct; JAK2 mutation; itching, thrombosis</td></tr>
+    <tr><td><strong>Essential thrombocythemia</strong></td><td>Platelets</td><td>Very high platelets; large/giant forms</td></tr>
+    <tr><td><strong>Primary myelofibrosis</strong></td><td>Fibrous marrow</td><td>Teardrop cells, leukoerythroblastic film, big spleen</td></tr>
+    <tr><td><strong>CML</strong></td><td>Granulocytes</td><td>BCR-ABL1 (see Ch 22)</td></tr>
+  </table>
+
+  <div class="grid2">
+    <div>
+      <figure>
+        <img src="images/tumor_mds.png" alt="Myelodysplastic dysplasia: pseudo-Pelger-Huet and hypogranular neutrophils" />
+        <figcaption><b>Fig 24.1 — MDS dysplasia.</b> Pseudo–Pelger–Huët neutrophil (bilobed) and a hypogranular
+        neutrophil — signs of ineffective, disordered maturation.</figcaption>
+      </figure>
+    </div>
+    <div>
+      <div class="callout">
+        <span class="t">Myelodysplastic syndromes (MDS)</span>
+        Clonal stem-cell disorders of older adults. The blood shows <strong>cytopenias</strong> with dysplastic cells;
+        the marrow is usually hypercellular. Carries a risk of transformation to AML.
+      </div>
+      <div class="callout warn">
+        <span class="t">Reading tip</span>
+        Dysplasia across &ge;2 lineages (e.g. hypogranular neutrophils + oval macrocytes + abnormal platelets) with
+        cytopenias should prompt an MDS work-up.
+      </div>
+    </div>
+  </div>
+  <div class="pagefoot"><span>Essentials of Hematology</span><span>Ch.24 — MPN &amp; MDS</span></div>
+</section>
+
+<!-- ===================== SECTION 25 ===================== -->
 <section class="page">
   <span class="kicker">Reference</span>
-  <h2>20. Quick Reference Tables</h2>
+  <h2>25. Quick Reference Tables</h2>
 
   <h3>Morphology → Think of</h3>
   <table>
