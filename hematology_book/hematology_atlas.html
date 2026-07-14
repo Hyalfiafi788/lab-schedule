@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Essentials of Hematology — Morphology &amp; Coagulation</title>
+<style>
+  :root{
+    --navy:#0f2f4a;
+    --teal:#0e7c86;
+    --accent:#c62828;
+    --ink:#1b2733;
+    --muted:#5b6b7b;
+    --line:#d9e2ea;
+    --soft:#f3f7fa;
+    --chip:#eaf3f4;
+  }
+  *{box-sizing:border-box;}
+  @page{size:A4;margin:0;}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  body{
+    font-family:"Segoe UI",Helvetica,Arial,sans-serif;
+    color:var(--ink);
+    margin:0;
+    line-height:1.55;
+    font-size:12pt;
+  }
+  /* ---------- page layout ---------- */
+  .page{
+    position:relative;
+    padding:16mm 18mm 18mm 18mm;
+    page-break-after:always;
+  }
+  figure,.callout,table,.cascade,svg{page-break-inside:avoid;}
+  .page:last-child{page-break-after:auto;}
+  h1,h2,h3,h4{color:var(--navy);line-height:1.2;margin:0 0 .4em;}
+  h2{font-size:22pt;border-bottom:3px solid var(--teal);padding-bottom:6px;margin-top:0;}
+  h3{font-size:15pt;color:var(--teal);margin-top:1.1em;}
+  h4{font-size:12.5pt;color:var(--navy);margin-top:.9em;}
+  p{margin:.45em 0;}
+  ul{margin:.4em 0 .6em;padding-left:1.15em;}
+  li{margin:.2em 0;}
+  strong{color:var(--navy);}
+  .lead{font-size:12.5pt;color:var(--muted);}
+  .small{font-size:10pt;color:var(--muted);}
+  .kicker{letter-spacing:.18em;text-transform:uppercase;font-size:9pt;color:var(--teal);font-weight:700;}
+
+  /* ---------- cover ---------- */
+  .cover{
+    padding:0;height:297mm;overflow:hidden;
+    background:linear-gradient(160deg,#0f2f4a 0%,#0e7c86 100%);
+    color:#fff;
+  }
+  .cover-inner{padding:18mm 22mm;display:flex;flex-direction:column;justify-content:space-between;height:297mm;}
+  .cover-mid{display:flex;flex-direction:column;align-items:center;}
+  .cover img{max-height:150mm;width:auto;max-width:100%;border-radius:14px;box-shadow:0 12px 40px rgba(0,0,0,.35);margin:8mm 0;}
+  .cover h1{color:#fff;font-size:34pt;margin:0;}
+  .cover .sub{color:#cfe8ea;font-size:15pt;margin-top:6px;}
+  .cover .badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.35);
+     padding:6px 14px;border-radius:30px;font-size:10pt;letter-spacing:.15em;text-transform:uppercase;}
+  .cover .foot{color:#bcd8db;font-size:10.5pt;border-top:1px solid rgba(255,255,255,.25);padding-top:10px;}
+
+  /* ---------- figures ---------- */
+  figure{margin:10px 0;background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:8px;}
+  figure img{width:100%;border-radius:8px;display:block;}
+  figcaption{font-size:9.5pt;color:var(--muted);margin-top:8px;text-align:center;}
+  figcaption b{color:var(--navy);}
+
+  /* ---------- boxes ---------- */
+  .grid2{display:flex;gap:16px;}
+  .grid2>div{flex:1;}
+  .callout{background:var(--chip);border-left:4px solid var(--teal);border-radius:8px;padding:10px 14px;margin:12px 0;}
+  .callout.warn{background:#fdecec;border-left-color:var(--accent);}
+  .callout .t{font-weight:700;color:var(--navy);display:block;margin-bottom:3px;}
+
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:10.5pt;}
+  th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top;}
+  th{background:var(--navy);color:#fff;font-weight:600;}
+  tr:nth-child(even) td{background:var(--soft);}
+
+  .toc a{color:var(--ink);text-decoration:none;}
+  .toc li{margin:.12em 0;font-size:11pt;}
+  .toc .num{color:var(--teal);font-weight:700;margin-right:10px;}
+
+  .pill{display:inline-block;background:var(--chip);color:var(--teal);border-radius:20px;
+    padding:2px 10px;font-size:9pt;font-weight:600;margin-right:4px;}
+
+  /* running footer via fixed positioning per page */
+  .pagefoot{position:absolute;bottom:12mm;left:20mm;right:20mm;display:flex;justify-content:space-between;
+    font-size:8.5pt;color:var(--muted);border-top:1px solid var(--line);padding-top:5px;}
+
+  /* cascade diagram */
+  .cascade{width:100%;background:#fff;border:1px solid var(--line);border-radius:12px;padding:6px;}
+</style>
+</head>
+<body>
+
+<!-- ===================== COVER ===================== -->
+<section class="page cover">
+  <div class="cover-inner">
+    <div style="text-align:center;">
+      <span class="badge">Laboratory Hematology</span>
+    </div>
+    <div class="cover-mid">
+      <img src="images/cover.png" alt="Blood cells illustration" />
+      <h1 style="text-align:center;">Essentials of Hematology</h1>
+      <div class="sub" style="text-align:center;">A Concise Illustrated Guide to Blood Cell Morphology &amp; Coagulation</div>
+    </div>
+    <div class="foot">
+      Visual atlas &bull; English concise notes &bull; For students &amp; laboratory staff<br/>
+      Educational reference — not a substitute for validated clinical protocols.
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TABLE OF CONTENTS ===================== -->
+<section class="page">
+  <span class="kicker">Contents</span>
+  <h2>Table of Contents</h2>
+  <ul class="toc" style="list-style:none;padding-left:0;">
+    <li style="color:var(--teal);font-weight:700;">Part I — Blood Cell Morphology</li>
+    <li><span class="num">1</span> How to Read a Peripheral Blood Smear</li>
+    <li><span class="num">2</span> Red Blood Cell Morphology</li>
+    <li><span class="num">3</span> White Blood Cell Morphology</li>
+    <li><span class="num">4</span> Platelet Morphology</li>
+    <li style="margin-top:.6em;color:var(--teal);font-weight:700;">Part II — Coagulation</li>
+    <li><span class="num">5</span> Overview of Hemostasis</li>
+    <li><span class="num">6</span> Primary Hemostasis — The Platelet Plug</li>
+    <li><span class="num">7</span> Secondary Hemostasis — The Coagulation Cascade</li>
+    <li><span class="num">8</span> Anticoagulants &amp; Fibrinolysis</li>
+    <li><span class="num">9</span> Coagulation Laboratory Tests</li>
+    <li style="margin-top:.6em;color:var(--teal);font-weight:700;">Part III — Atlas of Abnormal Cell Morphology</li>
+    <li><span class="num">10</span> Abnormal Red Cells &amp; Inclusions (with photos)</li>
+    <li><span class="num">11</span> Abnormal White Cells (with photos)</li>
+    <li><span class="num">12</span> Morphology Alert — Cell → Diagnosis</li>
+    <li style="margin-top:.6em;color:var(--teal);font-weight:700;">Part IV — Beginner's Guide: Reading a Blood Smear</li>
+    <li><span class="num">13</span> Step 1 — Making a Good Blood Film</li>
+    <li><span class="num">14</span> Step 2 — Microscope Set-up &amp; Scanning</li>
+    <li><span class="num">15</span> Step 3 — A Beginner's Read, Step by Step</li>
+    <li style="margin-top:.6em;color:var(--teal);font-weight:700;">Part V — Interpreting the CBC &amp; Blood Parasites</li>
+    <li><span class="num">16</span> Reading the Full Blood Count (CBC)</li>
+    <li><span class="num">17</span> The Anemia Approach by MCV</li>
+    <li><span class="num">18</span> Interpreting White Cell &amp; Platelet Counts</li>
+    <li><span class="num">19</span> Blood Parasites — Malaria on the Film (with photos)</li>
+    <li style="margin-top:.6em;color:var(--teal);font-weight:700;">Part VI — Hematological Malignancies (Blood Cancers)</li>
+    <li><span class="num">20</span> Overview &amp; Classification of Blood Cancers</li>
+    <li><span class="num">21</span> Acute Leukemias — AML &amp; ALL (with photos)</li>
+    <li><span class="num">22</span> Chronic Leukemias — CML &amp; CLL (with photos)</li>
+    <li><span class="num">23</span> Lymphomas &amp; Plasma Cell Disorders (with photos)</li>
+    <li><span class="num">24</span> Myeloproliferative &amp; Myelodysplastic Neoplasms (with photos)</li>
+    <li><span class="num">25</span> Quick Reference Tables</li>
+  </ul>
+
+  <p class="small" style="margin-top:14px;">Six parts build up in order — morphology, coagulation, an abnormal-cell atlas,
+  a beginner's smear-reading guide, CBC interpretation &amp; parasites, and blood cancers. Read the note, study the
+  figure, then revise with the reference tables.</p>
+  <div class="pagefoot"><span>Essentials of Hematology</span><span>Contents</span></div>
+</section>
+
+<!-- ===================== SECTION 1 ===================== -->
+<section class="page">
+  <span class="kicker">Part I — Morphology &bull; Chapter 1</span>
+  <h2>1. How to Read a Peripheral Blood Smear</h2>
+  <p class="lead">The blood film is the oldest and still one of the most informative tests in hematology.
+  A well-made, well-stained smear lets you assess all three cell lines at once.</p>
+
+  <h3>Making &amp; examining the film</h3>
+  <ul>
+    <li><strong>Preparation:</strong> a small drop of EDTA blood is spread with a spreader slide at ~30–45°, air-dried, then stained with a <strong>Romanowsky</strong> stain (Wright or Wright–Giemsa).</li>
+    <li><strong>The reading zone:</strong> examine where red cells <em>just</em> stop overlapping — the &ldquo;monolayer&rdquo;. Here central pallor and true morphology are visible.</li>
+    <li><strong>Systematic scan:</strong> low power (10×) for distribution &amp; clumps → high dry / oil (40–100×) for detailed morphology → estimate a differential count.</li>
+  </ul>
+
+  <figure>
+    <img src="images/normal_smear.png" alt="Normal peripheral blood smear" />
+    <figcaption><b>Fig 1.1 — Normal peripheral blood film.</b> Uniform red cells with central pallor (~1/3 of diameter),
+    a segmented neutrophil, and scattered platelets. This is the reference against which all abnormalities are judged.</figcaption>
+  </figure>
+
+  <div class="callout">
+    <span class="t">What to report</span>
+    Red cells: size, colour, shape, inclusions. White cells: numbers, differential, maturity, reactive changes.
+    Platelets: number (estimate), size, clumping. Always correlate with the automated CBC.
+  </div>
+  <div class="pagefoot"><span>Essentials of Hematology</span><span>Ch.1 — Blood Smear</span></div>
+</section>
+
+<!-- ===================== SECTION 2 ===================== -->
+<section class="page">
+  <span class="kicker">Part I — Morphology &bull; Chapter 2</span>
+  <h2>2. Red Blood Cell Morphology</h2>
+  <p class="lead">RBC abnormalities are described in four axes: <strong>size</strong>, <strong>colour</strong>,
+  <strong>shape</strong>, and <strong>inclusions</strong>. A normal RBC is 7–8&nbsp;µm, biconcave, with central pallor.</p>
+
+  <div class="grid2">
+    <div>
+      <h4>Size (anisocytosis)</h4>
+      <ul>
+        <li><strong>Microcyte</strong> (&lt;6 µm) — iron deficiency, thalassemia.</li>
+        <li><strong>Macrocyte</strong> (&gt;9 µm) — B12/folate deficiency, liver disease, alcohol.</li>
+        <li><strong>Anisocytosis</strong> — variation in size (high RDW).</li>
+      </ul>
+      <h4>Colour (chromia)</h4>
+      <ul>
+        <li><strong>Hypochromia</strong> — enlarged pallor; low hemoglobin.</li>
+        <li><strong>Polychromasia</strong> — bluish young cells (reticulocytes); marrow response.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Shape (poikilocytosis)</h4>
+      <ul>
+        <li><strong>Sickle cell</strong> — HbS polymerization.</li>
+        <li><strong>Target cell</strong> — liver disease, thalassemia, HbC.</li>
+        <li><strong>Spherocyte</strong> — hereditary spherocytosis, immune hemolysis.</li>
+        <li><strong>Schistocyte</strong> — fragments; MAHA, DIC, mechanical valve.</li>
+        <li><strong>Teardrop (dacrocyte)</strong> — marrow fibrosis.</li>
+        <li><strong>Elliptocyte</strong> — hereditary elliptocytosis.</li>
+      </ul>
+    </div>
+  </div>
+
+  <figure>
+    <img src="images/rbc_abnormalities.png" alt="Abnormal red cell shapes" />
+    <figcaption><b>Fig 2.1 — Common poikilocytes.</b> Top: sickle cells, target cells, spherocytes.
+    Bottom: schistocytes (fragments), teardrop cells, elliptocytes. Recognising the dominant shape often points directly to a diagnosis.</figcaption>
+  </figure>
+
+  <h3>RBC inclusions (brief)</h3>
+  <table>
+    <tr><th>Inclusion</th><th>Composition</th><th>Associated with</th></tr>
+    <tr><td>Howell–Jolly body</td><td>Nuclear (DNA) remnant</td><td>Post-splenectomy, hyposplenism</td></tr>
+    <tr><td>Basophilic stippling</td><td>Aggregated ribosomes</td><td>Lead poisoning, thalassemia</td></tr>
+    <tr><td>Pappenheimer bodies</td><td>Iron granules</td><td>Sideroblastic anemia, hyposplenism</td></tr>
+    <tr><td>Heinz body</td><td>Denatured hemoglobin</td><td>G6PD deficiency (supravital stain)</td></tr>
+  </table>
+  <div class="pagefoot"><span>Essentials of Hematology</span><span>Ch.2 — Red Cells</span></div>
+</section>
+
+<!-- ===================== SECTION 3 ===================== -->
+<section class="page">
+  <span class="kicker">Part I — Morphology &bull; Chapter 3</span>
+  <h2>3. White Blood Cell Morphology</h2>
+  <p class="lead">Five mature leukocytes circulate. Distinguish them by nuclear shape,
+  cytoplasmic colour, and granules.</p>
+
+  <figure>
+    <img src="images/wbc_types.png" alt="The five white blood cell types" />
+    <figcaption><b>Fig 3.1 — The five leukocytes (left → right):</b> neutrophil, lymphocyte, monocyte, eosinophil, basophil.</figcaption>
+  </figure>
+
+  <table>
+    <tr><th>Cell</th><th>Approx. %</th><th>Key morphology</th><th>Main role</th></tr>
+    <tr><td><strong>Neutrophil</strong></td><td>40–70%</td><td>3–5 lobed nucleus, fine lilac granules</td><td>Bacterial phagocytosis</td></tr>
+    <tr><td><strong>Lymphocyte</strong></td><td>20–45%</td><td>Round dense nucleus, thin blue rim</td><td>Adaptive immunity (B/T)</td></tr>
+    <tr><td><strong>Monocyte</strong></td><td>2–10%</td><td>Large kidney-shaped nucleus, grey-blue cytoplasm, vacuoles</td><td>Macrophage precursor, antigen presentation</td></tr>
+    <tr><td><strong>Eosinophil</strong></td><td>1–6%</td><td>Bilobed nucleus, bright red-orange granules</td><td>Parasites, allergy</td></tr>
+    <tr><td><strong>Basophil</strong></td><td>&lt;1%</td><td>Dark blue-black granules obscuring nucleus</td><td>Histamine, hypersensitivity</td></tr>
+  </table>
+
+  <div class="grid2">
+    <div class="callout">
+      <span class="t">Left shift</span>
+      Increase in immature neutrophils (band forms, metamyelocytes). Suggests acute infection or marrow stress.
+    </div>
+    <div class="callout warn">
+      <span class="t">Toxic changes</span>
+      Toxic granulation, Döhle bodies, and vacuolation indicate severe infection/sepsis.
+    </div>
+  </div>
+
+  <h4>Reactive vs. neoplastic clues</h4>
+  <ul>
+    <li><strong>Reactive lymphocytes</strong> (e.g. EBV) — large, abundant pale-blue cytoplasm hugging surrounding red cells.</li>
+    <li><strong>Blasts</strong> — high nucleus:cytoplasm ratio, fine chromatin, nucleoli; Auer rods suggest AML. Always flag for review.</li>
+  </ul>
+  <div class="pagefoot"><span>Essentials of Hematology</span><span>Ch.3 — White Cells</span></div>
+</section>
+
+<!-- ===================== SECTION 4 ===================== -->
+<section class="page">
+  <span class="kicker">Part I — Morphology &bull; Chapter 4</span>
+  <h2>4. Platelet Morphology</h2>
+  <p class="lead">Platelets are anucleate cytoplasmic fragments of megakaryocytes, 2–4 µm,
+  with fine purple granules. Normal count 150–450 ×10⁹/L.</p>
+
+  <div class="grid2">
+    <div>
+      <h4>On the film</h4>
+      <ul>
+        <li><strong>Number:</strong> roughly 8–20 platelets per oil field ≈ normal; each platelet ≈ 15–20 ×10⁹/L.</li>
+        <li><strong>Large / giant platelets:</strong> ITP, myeloproliferative disease, inherited macrothrombocytopenias.</li>
+        <li><strong>Platelet clumps:</strong> EDTA-induced pseudothrombocytopenia — recollect in citrate.</li>
+        <li><strong>Platelet satellitism:</strong> platelets rosetting around neutrophils (EDTA artefact).</li>
+      </ul>
+    </div>
+    <div>
+      <div class="callout">
+        <span class="t">Always confirm low counts</span>
+        A low automated platelet count must be checked against the film before reporting.
+        Clumps, giant platelets, or fibrin strands can falsely lower the analyser count.
+      </div>
+      <div class="callout warn">
+        <span class="t">Critical value</span>
+        Marked thrombocytopenia (&lt;20 ×10⁹/L) carries a spontaneous bleeding risk and is usually a call-back result.
+      </div>
+    </div>
+  </div>
+
+  <h3>From morphology to function</h3>
+  <p>Platelet number and size on the smear are the visual bridge to the next part of this atlas:
+  platelets are the first responders of <strong>hemostasis</strong>. We now follow them into clot formation.</p>
+  <div class="pagefoot"><span>Essentials of Hematology</span><span>Ch.4 — Platelets</span></div>
+</section>
+
+<!-- ===================== SECTION 5 ===================== -->
+<section class="page">
+  <span class="kicker">Part II — Coagulation &bull; Chapter 5</span>
+  <h2>5. Overview of Hemostasis</h2>
+  <p class="lead">Hemostasis is the balanced process that stops bleeding at a site of injury while
+  keeping blood fluid everywhere else. It has three overlapping phases.</p>
+
+  <table>
+    <tr><th>Phase</th><th>Main players</th><th>Result</th></tr>
+    <tr><td><strong>1. Primary hemostasis</strong></td><td>Platelets, von Willebrand factor, vessel wall</td><td>Unstable platelet plug (seconds–minutes)</td></tr>
+    <tr><td><strong>2. Secondary hemostasis</strong></td><td>Coagulation factors → thrombin → fibrin</td><td>Stable fibrin-reinforced clot</td></tr>
+    <tr><td><strong>3. Fibrinolysis</strong></td><td>Plasmin, tPA</td><td>Controlled clot breakdown &amp; remodelling</td></tr>
+  </table>
+
+  <figure>
+    <img src="images/fibrin_clot.png" alt="Fibrin mesh trapping red cells and platelets" />
+    <figcaption><b>Fig 5.1 — The mature clot.</b> A fibrin mesh (thin strands) cross-links activated platelets and traps
+    red cells, converting the fragile platelet plug into a stable thrombus.</figcaption>
+  </figure>
+
+  <div class="callout">
+    <span class="t">The balance concept</span>
+    Procoagulant forces (platelets, clotting factors) are constantly opposed by anticoagulant and fibrinolytic
+    forces (antithrombin, protein C/S, plasmin). Bleeding or thrombosis results when this balance is disturbed.
+  </div>
+  <div class="pagefoot"><span>Essentials of Hematology</span><span>Ch.5 — Hemostasis</span></div>
+</section>
+
+<!-- ===================== SECTION 6 ===================== -->
+<section class="page">
+  <span class="kicker">Part II — Coagulation &bull; Chapter 6</span>
+  <h2>6. Primary Hemostasis — The Platelet Plug</h2>
+  <p class="lead">Within seconds of vessel injury, platelets form the first seal in three steps:
+  <strong>adhesion → activation → aggregation</strong>.</p>
+
+  <h3>The three steps</h3>
+  <ul>
+    <li><strong>Adhesion:</strong> exposed subendothelial <strong>collagen</strong> binds <strong>von Willebrand factor (vWF)</strong>,
+    which tethers platelets via receptor <strong>GPIb</strong>.</li>
+    <li><strong>Activation:</strong> platelets change shape, extend pseudopods, and release granule contents
+    (<strong>ADP</strong>, thromboxane A₂, serotonin), recruiting more platelets.</li>
+    <li><strong>Aggregation:</strong> activated <strong>GPIIb/IIIa</strong> receptors bind <strong>fibrinogen</strong>,
+    cross-linking platelets into a plug.</li>
+  </ul>
+
+  <figure>
+    <img src="images/platelet_plug.png" alt="Platelet adhesion and plug formation at a vessel injury" />
+    <figcaption><b>Fig 6.1 — Primary hemostasis.</b> Platelets adhere to the exposed subendothelium at the site of injury
+    and aggregate into a plug that temporarily seals the defect.</figcaption>
+  </figure>
+
+  <div class="grid2">
+    <div class="callout warn">
+      <span class="t">Disorders of primary hemostasis</span>
+      Present with <em>mucocutaneous</em> bleeding: petechiae, easy bruising, epistaxis, menorrhagia.
+      Examples: thrombocytopenia, von Willebrand disease, aspirin/clopidogrel effect, Glanzmann (GPIIb/IIIa),
+      Bernard–Soulier (GPIb).
+    </div>
+    <div class="callout">
+      <span class="t">Test link</span>
+      Screened with platelet count and platelet function assays (PFA-100/closure time); vWF activity for suspected VWD.
+    </div>
+  </div>
+  <div class="pagefoot"><span>Essentials of Hematology</span><span>Ch.6 — Platelet Plug</span></div>
+</section>
+
+<!-- ===================== SECTION 7 — CASCADE ===================== -->
+<section class="page">
+  <span class="kicker">Part II — Coagulation &bull; Chapter 7</span>
+  <h2>7. Secondary Hemostasis — The Coagulation Cascade</h2>
+  <p class="lead">A chain of serine-protease reactions converts <strong>fibrinogen</strong> to <strong>fibrin</strong>.
+  The classic model has an <strong>intrinsic</strong> and an <strong>extrinsic</strong> arm meeting in a
+  <strong>common</strong> pathway. This model maps directly onto the lab tests.</p>
+
+  <svg class="cascade" viewBox="0 0 720 470" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+    <defs>
+      <marker id="ari" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+        <path d="M0,0 L9,4.5 L0,9 Z" fill="#0f2f4a"/>
+      </marker>
+    </defs>
+    <!-- column headers -->
+    <rect x="20" y="14" width="300" height="30" rx="6" fill="#0e7c86"/>
+    <text x="170" y="34" fill="#fff" font-size="15" font-weight="700" text-anchor="middle">Intrinsic pathway (aPTT)</text>
+    <rect x="400" y="14" width="300" height="30" rx="6" fill="#c62828"/>
+    <text x="550" y="34" fill="#fff" font-size="15" font-weight="700" text-anchor="middle">Extrinsic pathway (PT/INR)</text>
+
+    <!-- intrinsic boxes -->
+    <g font-size="13" text-anchor="middle">
+      <rect x="70" y="60" width="200" height="30" rx="6" fill="#eaf3f4" stroke="#0e7c86"/>
+      <text x="170" y="80" fill="#0f2f4a">Contact / damaged surface</text>
+      <rect x="70" y="108" width="200" height="30" rx="6" fill="#eaf3f4" stroke="#0e7c86"/>
+      <text x="170" y="128" fill="#0f2f4a">XII &#8594; XIIa</text>
+      <rect x="70" y="156" width="200" height="30" rx="6" fill="#eaf3f4" stroke="#0e7c86"/>
+      <text x="170" y="176" fill="#0f2f4a">XI &#8594; XIa</text>
+      <rect x="70" y="204" width="200" height="30" rx="6" fill="#eaf3f4" stroke="#0e7c86"/>
+      <text x="170" y="224" fill="#0f2f4a">IX &#8594; IXa (+ VIIIa)</text>
+    </g>
+
+    <!-- extrinsic boxes -->
+    <g font-size="13" text-anchor="middle">
+      <rect x="450" y="60" width="200" height="30" rx="6" fill="#fdecec" stroke="#c62828"/>
+      <text x="550" y="80" fill="#0f2f4a">Tissue injury</text>
+      <rect x="450" y="108" width="200" height="30" rx="6" fill="#fdecec" stroke="#c62828"/>
+      <text x="550" y="128" fill="#0f2f4a">Tissue Factor (III)</text>
+      <rect x="450" y="156" width="200" height="30" rx="6" fill="#fdecec" stroke="#c62828"/>
+      <text x="550" y="176" fill="#0f2f4a">VII &#8594; VIIa</text>
+    </g>
+
+    <!-- common pathway -->
+    <g font-size="13" text-anchor="middle">
+      <rect x="260" y="262" width="200" height="30" rx="6" fill="#dfeaf2" stroke="#0f2f4a" stroke-width="1.5"/>
+      <text x="360" y="282" fill="#0f2f4a" font-weight="700">X &#8594; Xa (+ Va)</text>
+      <rect x="260" y="312" width="200" height="30" rx="6" fill="#dfeaf2" stroke="#0f2f4a" stroke-width="1.5"/>
+      <text x="360" y="332" fill="#0f2f4a" font-weight="700">Prothrombin (II) &#8594; Thrombin (IIa)</text>
+      <rect x="260" y="362" width="200" height="30" rx="6" fill="#dfeaf2" stroke="#0f2f4a" stroke-width="1.5"/>
+      <text x="360" y="382" fill="#0f2f4a" font-weight="700">Fibrinogen (I) &#8594; Fibrin (Ia)</text>
+      <rect x="260" y="412" width="200" height="30" rx="6" fill="#0f2f4a"/>
+      <text x="360" y="432" fill="#fff" font-weight="700">Cross-linked fibrin (XIIIa)</text>
+    </g>
+
+    <!-- common label -->
+    <text x="360" y="252" fill="#0f2f4a" font-size="13" font-weight="700" text-anchor="middle">Common pathway (PT &amp; aPTT)</text>
+
+    <!-- arrows intrinsic -->
+    <g stroke="#0f2f4a" stroke-width="2" fill="none" marker-end="url(#ari)">
+      <line x1="170" y1="90" x2="170" y2="106"/>
+      <line x1="170" y1="138" x2="170" y2="154"/>
+      <line x1="170" y1="186" x2="170" y2="202"/>
+      <line x1="170" y1="234" x2="300" y2="262"/>
+      <!-- extrinsic -->
+      <line x1="550" y1="90" x2="550" y2="106"/>
+      <line x1="550" y1="138" x2="550" y2="154"/>
+      <line x1="550" y1="186" x2="420" y2="262"/>
+      <!-- common -->
+      <line x1="360" y1="292" x2="360" y2="310"/>
+      <line x1="360" y1="342" x2="360" y2="360"/>
+      <line x1="360" y1="392" x2="360" y2="410"/>
+    </g>
+  </svg>
+  <p class="small" style="text-align:center;">Fig 7.1 — Coagulation cascade. Factor numbering in Roman numerals; &ldquo;a&rdquo; = activated form.
+  Modern <em>cell-based</em> models emphasise that tissue factor/VIIa initiates coagulation <em>in vivo</em>, with the intrinsic arm amplifying thrombin — but the classic diagram still explains PT and aPTT.</p>
+
+  <div class="grid2">
+    <div class="callout">
+      <span class="t">Vitamin K–dependent factors</span>
+      II, VII, IX, X (and proteins C &amp; S). Target of <strong>warfarin</strong>. Factor VII has the shortest half-life → PT rises first.
+    </div>
+    <div class="callout">
+      <span class="t">Cofactors &amp; calcium</span>
+      Factors V and VIII are cofactors (not enzymes). Ca²⁺ (factor IV) and phospholipid surfaces are required throughout.
+    </div>
+  </div>
+  <div class="pagefoot"><span>Essentials of Hematology</span><span>Ch.7 — Cascade</span></div>
+</section>
+
+<!-- ===================== SECTION 8 ===================== -->
+<section class="page">
+  <span class="kicker">Part II — Coagulation &bull; Chapter 8</span>
+  <h2>8. Anticoagulants &amp; Fibrinolysis</h2>
+  <p class="lead">Clotting must be confined to the injury site. Natural inhibitors localise the clot,
+  and fibrinolysis removes it once healing begins.</p>
+
+  <h3>Natural anticoagulant systems</h3>
+  <table>
+    <tr><th>System</th><th>Action</th><th>Note</th></tr>
+    <tr><td><strong>Antithrombin (AT)</strong></td><td>Inhibits thrombin &amp; Xa (IXa, XIa)</td><td>Accelerated by heparin</td></tr>
+    <tr><td><strong>Protein C + Protein S</strong></td><td>Inactivate factors Va &amp; VIIIa</td><td>Activated by thrombin–thrombomodulin; vitamin K–dependent</td></tr>
+    <tr><td><strong>Tissue factor pathway inhibitor (TFPI)</strong></td><td>Inhibits TF–VIIa &amp; Xa</td><td>Down-regulates initiation</td></tr>
+  </table>
+
+  <div class="callout warn">
+    <span class="t">Factor V Leiden</span>
+    A mutation making factor Va resistant to protein C (&ldquo;activated protein C resistance&rdquo;) — the commonest
+    inherited thrombophilia.
+  </div>
+
+  <h3>Fibrinolysis</h3>
+  <ul>
+    <li><strong>Plasminogen → plasmin</strong>, driven by <strong>tissue plasminogen activator (tPA)</strong> and urokinase.</li>
+    <li><strong>Plasmin</strong> digests fibrin, releasing <strong>fibrin degradation products (FDPs)</strong> and <strong>D-dimer</strong>.</li>
+    <li>Regulated by <strong>PAI-1</strong> (inhibits tPA) and <strong>α2-antiplasmin</strong> (inhibits plasmin).</li>
+    <li><strong>D-dimer</strong> is a specific product of cross-linked fibrin breakdown — raised in DVT/PE, DIC, and many acute states.</li>
+  </ul>
+  <div class="pagefoot"><span>Essentials of Hematology</span><span>Ch.8 — Anticoagulation</span></div>
+</section>
+
+<!-- ===================== SECTION 9 ===================== -->
+<section class="page">
+  <span class="kicker">Part II — Coagulation &bull; Chapter 9</span>
+  <h2>9. Coagulation Laboratory Tests</h2>
+  <p class="lead">Most bleeding/clotting screens rest on a handful of tests. Match the abnormal test to the pathway.</p>
+
+  <table>
+    <tr><th>Test</th><th>Measures</th><th>Typical range*</th><th>Prolonged by</th></tr>
+    <tr><td><strong>PT / INR</strong></td><td>Extrinsic + common (VII, X, V, II, I)</td><td>PT 11–14 s; INR ~1.0</td><td>Warfarin, liver disease, factor VII deficiency</td></tr>
+    <tr><td><strong>aPTT</strong></td><td>Intrinsic + common (XII, XI, IX, VIII, X, V, II, I)</td><td>25–35 s</td><td>Heparin, hemophilia A/B, lupus anticoagulant</td></tr>
+    <tr><td><strong>Thrombin time (TT)</strong></td><td>Fibrinogen → fibrin (final step)</td><td>14–19 s</td><td>Heparin, low/abnormal fibrinogen</td></tr>
+    <tr><td><strong>Fibrinogen</strong></td><td>Factor I level</td><td>2–4 g/L</td><td>Low in DIC, liver disease</td></tr>
+    <tr><td><strong>D-dimer</strong></td><td>Fibrin breakdown</td><td>&lt;0.5 mg/L FEU</td><td>Raised in VTE, DIC, inflammation</td></tr>
+    <tr><td><strong>Platelet count</strong></td><td>Primary hemostasis</td><td>150–450 ×10⁹/L</td><td>—</td></tr>
+  </table>
+  <p class="small">*Reference ranges vary by reagent/analyser; always use your own laboratory's validated values.</p>
+
+  <h3>Reading the pattern</h3>
+  <ul>
+    <li><strong>PT ↑, aPTT normal</strong> → extrinsic (factor VII), early warfarin.</li>
+    <li><strong>aPTT ↑, PT normal</strong> → intrinsic (VIII, IX, XI), heparin, lupus anticoagulant.</li>
+    <li><strong>Both ↑</strong> → common pathway, liver disease, DIC, high-dose anticoagulation.</li>
+    <li><strong>Mixing study:</strong> corrects → factor deficiency; fails to correct → inhibitor (e.g. lupus anticoagulant).</li>
+  </ul>
+
+  <div class="callout warn">
+    <span class="t">DIC pattern</span>
+    ↑PT, ↑aPTT, ↓platelets, ↓fibrinogen, ↑↑D-dimer, plus schistocytes on the film — a consumptive coagulopathy.
+  </div>
+  <div class="pagefoot"><span>Essentials of Hematology</span><span>Ch.9 — Lab Tests</span></div>
+</section>
+
+<!-- ===================== PART III DIVIDER-INTRO / SECTION 10 ===================== -->
+<section class="page">
+  <span class="kicker">Part III — Abnormal Morphology &bull; Chapter 10</span>
+  <h2>10. Abnormal Red Cells &amp; Inclusions</h2>
+  <p class="lead">Part III is a photo atlas: each figure shows an abnormal finding as it appears on a
+  Wright–Giemsa film, with a one-line meaning. Use it to match what you see down the microscope.</p>
+
+  <div class="grid2">
+    <div>
+      <figure>
+        <img src="images/abn_inclusions.png" alt="Red cell inclusions" />
+        <figcaption><b>Fig 10.1 — RBC inclusions.</b> Howell–Jolly body (single round nuclear remnant),
+        basophilic stippling (fine blue dots = ribosomes), Pappenheimer bodies (iron granules).<br/>
+        <span class="pill">Hyposplenism</span><span class="pill">Lead / thalassemia</span><span class="pill">Sideroblastic</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/abn_bite_blister.png" alt="Bite and blister cells" />
+        <figcaption><b>Fig 10.2 — Bite &amp; blister cells.</b> Semicircular &ldquo;bite&rdquo; defect and hemoglobin pushed to
+        one side after splenic removal of Heinz bodies.<br/>
+        <span class="pill">G6PD deficiency</span><span class="pill">Oxidative hemolysis</span></figcaption>
+      </figure>
+    </div>
+    <div>
+      <figure>
+        <img src="images/abn_nrbc.png" alt="Nucleated red blood cell and polychromasia" />
+        <figcaption><b>Fig 10.3 — Nucleated RBC (normoblast) + polychromasia.</b> Immature red cells released
+        early; bluish polychromatic cells are reticulocytes.<br/>
+        <span class="pill">Brisk hemolysis</span><span class="pill">Marrow stress</span><span class="pill">Neonate</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/abn_rouleaux.png" alt="Rouleaux and agglutination" />
+        <figcaption><b>Fig 10.4 — Rouleaux (left) vs agglutination (right).</b> Coin-stack rows vs irregular clumps.<br/>
+        <span class="pill">High protein / myeloma</span><span class="pill">Cold agglutinins</span></figcaption>
+      </figure>
+    </div>
+  </div>
+  <div class="pagefoot"><span>Essentials of Hematology</span><span>Ch.10 — Abnormal Red Cells</span></div>
+</section>
+
+<!-- ===================== SECTION 11 ===================== -->
+<section class="page">
+  <span class="kicker">Part III — Abnormal Morphology &bull; Chapter 11</span>
+  <h2>11. Abnormal White Cells</h2>
+  <p class="lead">Leukocyte abnormalities range from benign reactive change to leukemic blasts.
+  The four findings below cover most &ldquo;flag for review&rdquo; smears.</p>
+
+  <div class="grid2">
+    <div>
+      <figure>
+        <img src="images/abn_blasts_auer.png" alt="Myeloblasts with Auer rods" />
+        <figcaption><b>Fig 11.1 — Blasts with Auer rods.</b> Large cells, high N:C ratio, fine chromatin, nucleoli;
+        red rod-shaped Auer rods are diagnostic of myeloid lineage.<br/>
+        <span class="pill">Acute myeloid leukemia</span><span class="pill">Urgent flag</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/abn_reactive_lymph.png" alt="Reactive atypical lymphocytes" />
+        <figcaption><b>Fig 11.2 — Reactive (atypical) lymphocytes.</b> Large cells, abundant pale-blue cytoplasm
+        indenting around neighbouring red cells.<br/>
+        <span class="pill">EBV / mononucleosis</span><span class="pill">Viral infection</span></figcaption>
+      </figure>
+    </div>
+    <div>
+      <figure>
+        <img src="images/abn_hypersegmented.png" alt="Hypersegmented neutrophil" />
+        <figcaption><b>Fig 11.3 — Hypersegmented neutrophil.</b> Six or more nuclear lobes, often with macrocytes.<br/>
+        <span class="pill">B12 / folate deficiency</span><span class="pill">Megaloblastic</span></figcaption>
+      </figure>
+      <figure>
+        <img src="images/abn_smudge_cells.png" alt="Smudge cells in CLL" />
+        <figcaption><b>Fig 11.4 — Smudge (smear) cells.</b> Many small mature lymphocytes plus fragile ruptured
+        cells crushed during smearing.<br/>
+        <span class="pill">Chronic lymphocytic leukemia</span></figcaption>
+      </figure>
+    </div>
+  </div>
+  <div class="pagefoot"><span>Essentials of Hematology</span><span>Ch.11 — Abnormal White Cells</span></div>
+</section>
+
+<!-- ===================== SECTION 12 ===================== -->
+<section class="page">
+  <span class="kicker">Part III — Abnormal Morphology &bull; Chapter 12</span>
+  <h2>12. Morphology Alert — Cell &rarr; Diagnosis</h2>
+  <p class="lead">A one-glance lookup linking each abnormal cell to its first-line differential.
+  Bold rows are &ldquo;critical / flag for immediate review&rdquo;.</p>
+
+  <table>
+    <tr><th>Abnormal cell / finding</th><th>Appearance in one line</th><th>First consider</th></tr>
+    <tr><td><strong>Blasts / Auer rods</strong></td><td>Large immature cell, nucleoli; red cytoplasmic rod</td><td><strong>Acute leukemia (AML) — urgent</strong></td></tr>
+    <tr><td>Hypersegmented neutrophil</td><td>&ge;6 nuclear lobes</td><td>B12 / folate deficiency</td></tr>
+    <tr><td>Reactive lymphocytes</td><td>Large, pale-blue cytoplasm hugging RBCs</td><td>EBV / viral infection</td></tr>
+    <tr><td>Smudge cells</td><td>Ruptured bare lymphocyte nuclei</td><td>Chronic lymphocytic leukemia</td></tr>
+    <tr><td><strong>Schistocytes + low platelets</strong></td><td>Red cell fragments, helmet cells</td><td><strong>MAHA / DIC / TTP-HUS — urgent</strong></td></tr>
+    <tr><td>Sickle cells</td><td>Rigid crescents</td><td>Sickle cell disease</td></tr>
+    <tr><td>Spherocytes</td><td>Dense round cells, no central pallor</td><td>Hereditary spherocytosis, AIHA</td></tr>
+    <tr><td>Target cells</td><td>Bullseye central density</td><td>Liver disease, thalassemia, HbC</td></tr>
+    <tr><td>Teardrop cells</td><td>Pear-shaped dacrocytes</td><td>Marrow fibrosis / infiltration</td></tr>
+    <tr><td>Bite / blister cells</td><td>Semicircular bite; shifted hemoglobin</td><td>G6PD deficiency / oxidant stress</td></tr>
+    <tr><td>Nucleated RBCs</td><td>Red cell with a nucleus</td><td>Brisk hemolysis, marrow stress, neonate</td></tr>
+    <tr><td>Howell–Jolly bodies</td><td>Single round nuclear remnant</td><td>Hyposplenism / post-splenectomy</td></tr>
+    <tr><td>Basophilic stippling</td><td>Fine blue dots throughout cell</td><td>Lead poisoning, thalassemia</td></tr>
+    <tr><td>Rouleaux</td><td>Coin-stack rows of red cells</td><td>High plasma protein / myeloma</td></tr>
+    <tr><td>Agglutination</td><td>Irregular red cell clumps</td><td>Cold agglutinin disease</td></tr>
+  </table>
+
+  <div class="callout warn">
+    <span class="t">Golden rule</span>
+    Any blasts, unexplained schistocytes, or a major discrepancy with the analyser count must be escalated to a
+    senior / pathologist before the result is released.
+  </div>
+  <div class="pagefoot"><span>Essentials of Hematology</span><span>Ch.12 — Morphology Alert</span></div>
+</section>
+
+<!-- ===================== PART IV / SECTION 13 ===================== -->
+<section class="page">
+  <span class="kicker">Part IV — Beginner's Guide &bull; Chapter 13</span>
+  <h2>13. Step 1 — Making a Good Blood Film</h2>
+  <p class="lead">Everything starts with a good film. A bad smear cannot be rescued — if it is uneven,
+  too thick, or too short, make a new one before you look.</p>
+
+  <h3>The wedge (push) technique</h3>
+  <ol>
+    <li>Place a <strong>small drop</strong> (~2–3 mm) of well-mixed EDTA blood near one end of a clean slide.</li>
+    <li>Bring a <strong>spreader slide</strong> back into the drop at a <strong>30–45° angle</strong> and let the blood spread along its edge.</li>
+    <li>Push forward <strong>smoothly and quickly</strong> in one motion. Do not press down.</li>
+    <li><strong>Air-dry</strong> immediately (wave, do not blow), then stain with Wright / Wright–Giemsa.</li>
+  </ol>
+
+  <figure>
+    <img src="images/smear_making.png" alt="Wedge technique for making a blood smear" />
+    <figcaption><b>Fig 13.1 — The wedge technique.</b> Spreader slide held at ~35°, drawn back into the drop, then pushed
+    forward in one smooth stroke.</figcaption>
+  </figure>
+
+  <div class="grid2">
+    <div>
+      <figure>
+        <img src="images/smear_slide.png" alt="Regions of a finished blood film" />
+        <figcaption><b>Fig 13.2 — The three regions.</b> Thick <em>head</em> &rarr; even <em>body / monolayer</em>
+        &rarr; thin <em>feathered edge (tail)</em>.</figcaption>
+      </figure>
+    </div>
+    <div>
+      <div class="callout">
+        <span class="t">Angle rule of thumb</span>
+        Blood too <strong>thick</strong> (high Hct) → use a <em>smaller</em> angle / faster push.
+        Blood too <strong>thin</strong> (anemia) → use a <em>larger</em> angle / slower push.
+      </div>
+      <div class="callout warn">
+        <span class="t">Where you will read</span>
+        The <strong>monolayer</strong>, just before the feathered edge, is the only place morphology is reliable.
+        The head is too thick; the very edge distorts the cells.
+      </div>
+    </div>
+  </div>
+  <div class="pagefoot"><span>Essentials of Hematology</span><span>Ch.13 — Making a Film</span></div>
+</section>
+
+<!-- ===================== SECTION 14 ===================== -->
+<section class="page">
+  <span class="kicker">Part IV — Beginner's Guide &bull; Chapter 14</span>
+  <h2>14. Step 2 — Microscope Set-up &amp; Scanning</h2>
+  <p class="lead">Move from low to high power, and scan in a fixed pattern so you never count the same cell twice
+  or miss an area.</p>
+
+  <div class="grid2">
+    <div>
+      <h3>Magnification ladder</h3>
+      <ul>
+        <li><strong>10× (low power):</strong> overall quality, cell distribution, clumps, and to find the monolayer. Estimate WBC numbers.</li>
+        <li><strong>40× (high dry):</strong> WBC differential and general red cell morphology.</li>
+        <li><strong>100× (oil immersion):</strong> fine detail — inclusions, parasites, platelet morphology. Add a drop of oil directly on the film.</li>
+      </ul>
+      <figure>
+        <img src="images/microscope.png" alt="Laboratory light microscope" />
+        <figcaption><b>Fig 14.1 — The light microscope.</b> Rotate objectives from short (10×) to long (100× oil);
+        use coarse focus only on low power.</figcaption>
+      </figure>
+    </div>
+    <div>
+      <h3>The battlement scan</h3>
+      <p>In the monolayer, move the slide in a <strong>battlement (crenellation) track</strong> — up, across, down, across —
+      so every field is new. This gives a representative differential.</p>
+      <svg viewBox="0 0 300 210" xmlns="http://www.w3.org/2000/svg" style="width:100%;background:#fff;border:1px solid var(--line);border-radius:12px;">
+        <defs>
+          <marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#0e7c86"/>
+          </marker>
+        </defs>
+        <rect x="10" y="10" width="280" height="190" rx="8" fill="#f3f7fa" stroke="#d9e2ea"/>
+        <polyline points="40,150 40,70 90,70 90,150 140,150 140,70 190,70 190,150 240,150 240,70"
+          fill="none" stroke="#0e7c86" stroke-width="3" marker-end="url(#ar2)"/>
+        <circle cx="40" cy="150" r="5" fill="#c62828"/>
+        <text x="40" y="175" font-size="11" fill="#5b6b7b" text-anchor="middle" font-family="Segoe UI, Arial">start</text>
+        <text x="150" y="30" font-size="12" fill="#0f2f4a" text-anchor="middle" font-family="Segoe UI, Arial" font-weight="700">Battlement track in the monolayer</text>
+      </svg>
+      <div class="callout">
+        <span class="t">Counting tip</span>
+        Count <strong>100 white cells</strong> in this track for a manual differential, keeping a tally of each type.
+      </div>
+    </div>
+  </div>
+  <div class="pagefoot"><span>Essentials of Hematology</span><span>Ch.14 — Set-up &amp; Scanning</span></div>
+</section>
+
+<!-- ===================== SECTION 15 ===================== -->
+<section class="page">
+  <span class="kicker">Part IV — Beginner's Guide &bull; Chapter 15</span>
+  <h2>15. Step 3 — A Beginner's Read, Step by Step</h2>
+  <p class="lead">Always read in the same order. A fixed routine means you never forget a cell line.</p>
+
+  <table>
+    <tr><th>#</th><th>Step</th><th>Power</th><th>What you are asking</th></tr>
+    <tr><td>1</td><td>Check smear quality &amp; staining</td><td>10×</td><td>Is it even? Well stained? Find the monolayer.</td></tr>
+    <tr><td>2</td><td>Scan cell distribution</td><td>10×</td><td>Any clumps, rouleaux, or large abnormal cells?</td></tr>
+    <tr><td>3</td><td>Estimate WBC number</td><td>10×</td><td>Roughly increased, normal, or decreased?</td></tr>
+    <tr><td>4</td><td>Red cell morphology</td><td>40×</td><td>Size, colour, shape, inclusions (vs Part II).</td></tr>
+    <tr><td>5</td><td>WBC differential (100 cells)</td><td>40–100×</td><td>Proportion of each leukocyte; any left shift?</td></tr>
+    <tr><td>6</td><td>Look for abnormal WBCs</td><td>100×</td><td>Blasts, Auer rods, atypical lymphocytes (Part III).</td></tr>
+    <tr><td>7</td><td>Estimate platelets</td><td>100×</td><td>Number, size, clumps (× ~15–20 per oil field).</td></tr>
+    <tr><td>8</td><td>Correlate &amp; report</td><td>—</td><td>Does it match the analyser CBC? Flag discrepancies.</td></tr>
+  </table>
+
+  <figure>
+    <img src="images/smear_good_bad.png" alt="Good versus bad blood smear" />
+    <figcaption><b>Fig 15.1 — Good vs bad film.</b> Left: smooth, even, with a gradual feathered edge — <em>read this</em>.
+    Right: ridges, holes and an abrupt edge — <em>remake it</em>.</figcaption>
+  </figure>
+
+  <div class="grid2">
+    <div class="callout warn">
+      <span class="t">Beginner pitfalls</span>
+      Reading in the thick head; using oil before finding the monolayer; mistaking stain precipitate or platelets on top
+      of red cells for inclusions; reporting a low platelet count without checking for clumps.
+    </div>
+    <div class="callout">
+      <span class="t">Golden habit</span>
+      Same order, every time: quality → distribution → red cells → white cells → platelets → correlate.
+    </div>
+  </div>
+  <div class="pagefoot"><span>Essentials of Hematology</span><span>Ch.15 — Step-by-Step Read</span></div>
+</section>
+
+<!-- ===================== PART V / SECTION 16 ===================== -->
+<section class="page">
+  <span class="kicker">Part V — Interpreting the CBC &bull; Chapter 16</span>
+  <h2>16. Reading the Full Blood Count (CBC)</h2>
+  <p class="lead">The CBC is the numerical companion to the film. Learn the core parameters, their adult reference
+  ranges, and the one-line meaning of each.</p>
+
+  <table>
+    <tr><th>Parameter</th><th>Typical adult range*</th><th>Meaning / raised–low</th></tr>
+    <tr><td><strong>Hb</strong> (hemoglobin)</td><td>M 130–170, F 120–155 g/L</td><td>Oxygen-carrying capacity; low = anemia.</td></tr>
+    <tr><td><strong>RBC</strong> count</td><td>4.2–6.0 ×10¹²/L</td><td>Red cell number.</td></tr>
+    <tr><td><strong>Hct / PCV</strong></td><td>M 0.40–0.52, F 0.36–0.46</td><td>Fraction of blood that is red cells.</td></tr>
+    <tr><td><strong>MCV</strong></td><td>80–100 fL</td><td>Average red cell size (micro / normo / macrocytic).</td></tr>
+    <tr><td><strong>MCH</strong></td><td>27–33 pg</td><td>Average Hb per cell.</td></tr>
+    <tr><td><strong>MCHC</strong></td><td>320–360 g/L</td><td>Hb concentration; high → spherocytes.</td></tr>
+    <tr><td><strong>RDW</strong></td><td>11.5–14.5 %</td><td>Variation in size (anisocytosis).</td></tr>
+    <tr><td><strong>WBC</strong></td><td>4.0–11.0 ×10⁹/L</td><td>Total white cells; high = leukocytosis.</td></tr>
+    <tr><td><strong>Platelets</strong></td><td>150–450 ×10⁹/L</td><td>Low = thrombocytopenia (bleeding risk).</td></tr>
+    <tr><td><strong>Reticulocytes</strong></td><td>0.5–2.5 % (25–100 ×10⁹/L)</td><td>Young red cells; marrow response to anemia.</td></tr>
+  </table>
+  <p class="small">*Ranges vary by analyser, age, sex, altitude, and pregnancy — always use your own laboratory's values.</p>
+
+  <div class="grid2">
+    <div class="callout">
+      <span class="t">The indices are derived</span>
+      MCV, MCH and MCHC are calculated from Hb, Hct and RBC. They convert raw counts into a description of
+      <em>average</em> cell size and colour — exactly what you confirm on the film.
+    </div>
+    <div class="callout warn">
+      <span class="t">Always correlate</span>
+      A surprising CBC (e.g. very low platelets, very high MCV) should trigger a film review before it is reported —
+      artefacts and clumps are common.
+    </div>
+  </div>
+  <div class="pagefoot"><span>Essentials of Hematology</span><span>Ch.16 — Reading the CBC</span></div>
+</section>
+
+<!-- ===================== SECTION 17 ===================== -->
+<section class="page">
+  <span class="kicker">Part V — Interpreting the CBC &bull; Chapter 17</span>
+  <h2>17. The Anemia Approach by MCV</h2>
+  <p class="lead">When Hb is low, the fastest first step is to split anemia by <strong>MCV</strong>, then add the
+  <strong>reticulocyte count</strong> to see whether the marrow is responding.</p>
+
+  <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif" style="width:100%;background:#fff;border:1px solid var(--line);border-radius:12px;">
+    <defs>
+      <marker id="ar3" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#0f2f4a"/></marker>
+    </defs>
+    <rect x="270" y="14" width="160" height="34" rx="8" fill="#0f2f4a"/>
+    <text x="350" y="36" fill="#fff" font-size="15" font-weight="700" text-anchor="middle">Low Hb = anemia</text>
+
+    <!-- three MCV branches -->
+    <g font-size="12.5" text-anchor="middle">
+      <rect x="20" y="90" width="190" height="34" rx="8" fill="#eaf3f4" stroke="#0e7c86"/>
+      <text x="115" y="112" fill="#0f2f4a" font-weight="700">Microcytic (MCV &lt;80)</text>
+      <rect x="255" y="90" width="190" height="34" rx="8" fill="#dfeaf2" stroke="#0f2f4a"/>
+      <text x="350" y="112" fill="#0f2f4a" font-weight="700">Normocytic (80–100)</text>
+      <rect x="490" y="90" width="190" height="34" rx="8" fill="#fdecec" stroke="#c62828"/>
+      <text x="585" y="112" fill="#0f2f4a" font-weight="700">Macrocytic (MCV &gt;100)</text>
+    </g>
+
+    <!-- causes -->
+    <g font-size="11.5" text-anchor="middle" fill="#1b2733">
+      <rect x="20" y="150" width="190" height="120" rx="8" fill="#f3f7fa" stroke="#d9e2ea"/>
+      <text x="115" y="172">Iron deficiency</text>
+      <text x="115" y="192">Thalassemia</text>
+      <text x="115" y="212">Anemia of chronic</text>
+      <text x="115" y="228">disease (some)</text>
+      <text x="115" y="252">Sideroblastic</text>
+
+      <rect x="255" y="150" width="190" height="120" rx="8" fill="#f3f7fa" stroke="#d9e2ea"/>
+      <text x="350" y="170" font-weight="700" fill="#0e7c86">Check retics</text>
+      <text x="350" y="192">High retic → hemolysis /</text>
+      <text x="350" y="208">acute blood loss</text>
+      <text x="350" y="234">Low retic → marrow,</text>
+      <text x="350" y="250">chronic disease, renal</text>
+
+      <rect x="490" y="150" width="190" height="120" rx="8" fill="#f3f7fa" stroke="#d9e2ea"/>
+      <text x="585" y="172" font-weight="700">Megaloblastic:</text>
+      <text x="585" y="190">B12 / folate deficiency</text>
+      <text x="585" y="216" font-weight="700">Non-megaloblastic:</text>
+      <text x="585" y="234">alcohol, liver disease,</text>
+      <text x="585" y="250">hypothyroid, myelodysplasia</text>
+    </g>
+
+    <g stroke="#0f2f4a" stroke-width="2" fill="none" marker-end="url(#ar3)">
+      <line x1="300" y1="48" x2="130" y2="88"/>
+      <line x1="350" y1="48" x2="350" y2="88"/>
+      <line x1="400" y1="48" x2="570" y2="88"/>
+      <line x1="115" y1="124" x2="115" y2="148"/>
+      <line x1="350" y1="124" x2="350" y2="148"/>
+      <line x1="585" y1="124" x2="585" y2="148"/>
+    </g>
+  </svg>
+  <p class="small" style="text-align:center;">Fig 17.1 — First-pass classification of anemia. Confirm the suspected cause on the film
+  (e.g. microcytic + hypochromic → iron deficiency; macro-ovalocytes + hypersegmented neutrophils → B12/folate).</p>
+
+  <div class="callout">
+    <span class="t">Reticulocytes decide "why"</span>
+    In normocytic anemia especially, a <strong>high</strong> reticulocyte count points to loss/destruction (bleeding, hemolysis),
+    while a <strong>low</strong> count points to reduced production (marrow, chronic disease, renal failure).
+  </div>
+  <div class="pagefoot"><span>Essentials of Hematology</span><span>Ch.17 — Anemia by MCV</span></div>
+</section>
+
+<!-- ===================== SECTION 18 ===================== -->
+<section class="page">
+  <span class="kicker">Part V — Interpreting the CBC &bull; Chapter 18</span>
+  <h2>18. Interpreting White Cell &amp; Platelet Counts</h2>
+  <p class="lead">Read the total count, then the differential, then the film. The pattern usually points to a cause.</p>
+
+  <h3>White cells</h3>
+  <table>
+    <tr><th>Finding</th><th>Definition</th><th>Common causes</th></tr>
+    <tr><td><strong>Neutrophilia</strong></td><td>Neutrophils high</td><td>Bacterial infection, inflammation, steroids, stress</td></tr>
+    <tr><td><strong>Neutropenia</strong></td><td>Neutrophils low</td><td>Viral, drugs/chemo, marrow failure, severe sepsis</td></tr>
+    <tr><td><strong>Lymphocytosis</strong></td><td>Lymphocytes high</td><td>Viral infection, pertussis, CLL</td></tr>
+    <tr><td><strong>Eosinophilia</strong></td><td>Eosinophils high</td><td>Allergy, parasites, drug reaction</td></tr>
+    <tr><td><strong>Monocytosis</strong></td><td>Monocytes high</td><td>Chronic infection (e.g. TB), recovery phase</td></tr>
+    <tr><td><strong>Left shift / blasts</strong></td><td>Immature forms</td><td>Severe infection; leukemia (blasts — urgent)</td></tr>
+  </table>
+
+  <h3>Platelets</h3>
+  <table>
+    <tr><th>Finding</th><th>Common causes</th></tr>
+    <tr><td><strong>Thrombocytopenia</strong> (low)</td><td>↓Production (marrow), ↑destruction (ITP, DIC, TTP), hypersplenism; exclude EDTA clumps</td></tr>
+    <tr><td><strong>Thrombocytosis</strong> (high)</td><td>Reactive (infection, iron deficiency, post-splenectomy) or clonal (essential thrombocythemia)</td></tr>
+  </table>
+
+  <div class="callout warn">
+    <span class="t">Pancytopenia</span>
+    Low in all three lines (Hb, WBC, platelets) is a red flag — think marrow failure/infiltration, B12/folate deficiency,
+    hypersplenism, or aplastic anemia. Always warrants film review and escalation.
+  </div>
+  <div class="pagefoot"><span>Essentials of Hematology</span><span>Ch.18 — WBC &amp; Platelets</span></div>
+</section>
+
+<!-- ===================== SECTION 19 ===================== -->
+<section class="page">
+  <span class="kicker">Part V — Interpreting the CBC &bull; Chapter 19</span>
+  <h2>19. Blood Parasites — Malaria on the Film</h2>
+  <p class="lead">The blood film is still the reference method for diagnosing malaria. Examine a well-stained film
+  carefully at oil immersion — parasites live <em>inside</em> the red cells.</p>
+
+  <div class="grid2">
+    <div>
+      <figure>
+        <img src="images/malaria_rings.png" alt="Plasmodium falciparum ring forms" />
+        <figcaption><b>Fig 19.1 — Ring-form trophozoites (P. falciparum).</b> Delicate blue rings with a red chromatin dot;
+        note <em>double rings</em> and edge-hugging <em>appliqué</em> forms.</figcaption>
+      </figure>
+    </div>
+    <div>
+      <figure>
+        <img src="images/malaria_gametocyte.png" alt="Plasmodium falciparum gametocyte" />
+        <figcaption><b>Fig 19.2 — Gametocyte (P. falciparum).</b> The characteristic crescent / banana shape —
+        diagnostic of the species.</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div>
+      <h4>How the lab looks</h4>
+      <ul>
+        <li><strong>Thick film:</strong> concentrates parasites — best to <em>detect</em> infection.</li>
+        <li><strong>Thin film:</strong> preserves red cell detail — best to <em>speciate</em> and estimate parasitemia.</li>
+        <li>Report the <strong>species</strong> and the <strong>% parasitemia</strong> (parasitized red cells per 100).</li>
+      </ul>
+    </div>
+    <div class="callout warn">
+      <span class="t">Why species matters</span>
+      <em>P. falciparum</em> can cause high parasitemia and severe/cerebral malaria — high parasitemia or falciparum
+      is a medical emergency. A single negative film does not exclude malaria; repeat over 48–72 h if suspicion is high.
+    </div>
+  </div>
+  <div class="pagefoot"><span>Essentials of Hematology</span><span>Ch.19 — Malaria</span></div>
+</section>
+
+<!-- ===================== PART VI / SECTION 20 ===================== -->
+<section class="page">
+  <span class="kicker">Part VI — Blood Cancers &bull; Chapter 20</span>
+  <h2>20. Overview &amp; Classification of Blood Cancers</h2>
+  <p class="lead">Hematological malignancies are clonal cancers of blood-forming cells. Two questions organise them all:
+  <strong>which lineage?</strong> (myeloid vs lymphoid) and <strong>how fast?</strong> (acute vs chronic).</p>
+
+  <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif" style="width:100%;background:#fff;border:1px solid var(--line);border-radius:12px;">
+    <!-- axis labels -->
+    <text x="360" y="24" text-anchor="middle" font-size="14" font-weight="700" fill="#0f2f4a">Lineage &rarr;</text>
+    <text x="350" y="44" text-anchor="middle" font-size="12.5" font-weight="700" fill="#0e7c86">Myeloid</text>
+    <text x="565" y="44" text-anchor="middle" font-size="12.5" font-weight="700" fill="#c62828">Lymphoid</text>
+    <text x="30" y="120" font-size="12.5" font-weight="700" fill="#0f2f4a" transform="rotate(-90 30 120)">Acute</text>
+    <text x="30" y="230" font-size="12.5" font-weight="700" fill="#0f2f4a" transform="rotate(-90 30 230)">Chronic</text>
+
+    <!-- quadrants -->
+    <g font-size="12.5">
+      <rect x="240" y="55" width="230" height="105" rx="8" fill="#eaf3f4" stroke="#0e7c86"/>
+      <text x="355" y="88" text-anchor="middle" font-weight="700" fill="#0f2f4a">AML</text>
+      <text x="355" y="110" text-anchor="middle" fill="#1b2733">Acute myeloid leukemia</text>
+      <text x="355" y="132" text-anchor="middle" fill="#5b6b7b" font-size="11">Myeloblasts &plusmn; Auer rods</text>
+
+      <rect x="480" y="55" width="200" height="105" rx="8" fill="#fdecec" stroke="#c62828"/>
+      <text x="580" y="88" text-anchor="middle" font-weight="700" fill="#0f2f4a">ALL</text>
+      <text x="580" y="110" text-anchor="middle" fill="#1b2733">Acute lymphoblastic</text>
+      <text x="580" y="132" text-anchor="middle" fill="#5b6b7b" font-size="11">Lymphoblasts; children</text>
+
+      <rect x="240" y="175" width="230" height="105" rx="8" fill="#eaf3f4" stroke="#0e7c86"/>
+      <text x="355" y="208" text-anchor="middle" font-weight="700" fill="#0f2f4a">CML + MPN</text>
+      <text x="355" y="230" text-anchor="middle" fill="#1b2733">Chronic myeloid; PV, ET, PMF</text>
+      <text x="355" y="252" text-anchor="middle" fill="#5b6b7b" font-size="11">Mature myeloid excess</text>
+
+      <rect x="480" y="175" width="200" height="105" rx="8" fill="#fdecec" stroke="#c62828"/>
+      <text x="580" y="208" text-anchor="middle" font-weight="700" fill="#0f2f4a">CLL + lymphoma</text>
+      <text x="580" y="230" text-anchor="middle" fill="#1b2733">Chronic lymphocytic;</text>
+      <text x="580" y="248" text-anchor="middle" fill="#1b2733">Hodgkin / NHL; myeloma</text>
+    </g>
+  </svg>
+  <p class="small" style="text-align:center;">Fig 20.1 — The lineage &times; tempo grid. <strong>Acute</strong> = immature <em>blasts</em> that fail to mature (rapid, aggressive);
+  <strong>chronic</strong> = accumulation of more <em>mature</em> cells (slower).</p>
+
+  <div class="grid2">
+    <div class="callout">
+      <span class="t">Leukemia vs lymphoma vs myeloma</span>
+      <strong>Leukemia</strong> — primarily in blood/marrow. <strong>Lymphoma</strong> — solid masses in lymph nodes/tissue.
+      <strong>Myeloma</strong> — malignant plasma cells in marrow making one (monoclonal) antibody.
+    </div>
+    <div class="callout warn">
+      <span class="t">Diagnosis is multimodal</span>
+      Morphology raises the suspicion; definitive diagnosis needs <strong>flow cytometry</strong> (immunophenotype),
+      <strong>cytogenetics/molecular</strong> (e.g. BCR-ABL1), and often marrow biopsy.
+    </div>
+  </div>
+  <div class="pagefoot"><span>Essentials of Hematology</span><span>Ch.20 — Classification</span></div>
+</section>
+
+<!-- ===================== SECTION 21 ===================== -->
+<section class="page">
+  <span class="kicker">Part VI — Blood Cancers &bull; Chapter 21</span>
+  <h2>21. Acute Leukemias — AML &amp; ALL</h2>
+  <p class="lead">Acute leukemias are defined by <strong>&ge;20% blasts</strong> in blood or marrow. They present rapidly with
+  the consequences of marrow failure: anemia, infection (neutropenia) and bleeding (thrombocytopenia).</p>
+
+  <div class="grid2">
+    <div>
+      <figure>
+        <img src="images/abn_blasts_auer.png" alt="AML myeloblasts with Auer rods" />
+        <figcaption><b>Fig 21.1 — AML.</b> Myeloblasts with fine chromatin, nucleoli, and diagnostic red
+        <em>Auer rods</em>.</figcaption>
+      </figure>
+      <p class="small"><strong>AML</strong> — mostly adults; may show gum infiltration; APL subtype is a coagulation emergency (DIC).</p>
+    </div>
+    <div>
+      <figure>
+        <img src="images/tumor_all_lymphoblasts.png" alt="ALL lymphoblasts" />
+        <figcaption><b>Fig 21.2 — ALL.</b> Monotonous lymphoblasts, high N:C ratio, scant cytoplasm, no Auer rods.</figcaption>
+      </figure>
+      <p class="small"><strong>ALL</strong> — commonest childhood cancer; may involve CNS and (in boys) testes.</p>
+    </div>
+  </div>
+
+  <table>
+    <tr><th>Feature</th><th>AML</th><th>ALL</th></tr>
+    <tr><td>Typical age</td><td>Adults</td><td>Children (peak 2–5 y)</td></tr>
+    <tr><td>Blast clue</td><td>Auer rods, granules</td><td>No Auer rods, scant cytoplasm</td></tr>
+    <tr><td>Lineage markers</td><td>MPO+, CD13/CD33</td><td>TdT+, CD19/CD10 (B) or CD3 (T)</td></tr>
+  </table>
+
+  <div class="callout warn">
+    <span class="t">Emergency</span>
+    Suspected acute leukemia (many blasts, pancytopenia, or blasts with Auer rods) must be flagged and referred
+    the same day — some subtypes deteriorate within hours.
+  </div>
+  <div class="pagefoot"><span>Essentials of Hematology</span><span>Ch.21 — Acute Leukemias</span></div>
+</section>
+
+<!-- ===================== SECTION 22 ===================== -->
+<section class="page">
+  <span class="kicker">Part VI — Blood Cancers &bull; Chapter 22</span>
+  <h2>22. Chronic Leukemias — CML &amp; CLL</h2>
+  <p class="lead">Chronic leukemias accumulate relatively <strong>mature</strong> cells, so they are often found on a routine CBC
+  in a well-looking patient. The two big ones are myeloid (CML) and lymphoid (CLL).</p>
+
+  <div class="grid2">
+    <div>
+      <figure>
+        <img src="images/tumor_cml.png" alt="Chronic myeloid leukemia smear" />
+        <figcaption><b>Fig 22.1 — CML.</b> Marked leukocytosis with the <em>full spectrum</em> of maturing granulocytes,
+        plus basophilia and eosinophilia.</figcaption>
+      </figure>
+      <p class="small"><strong>CML</strong> — driven by <strong>BCR-ABL1</strong> (Philadelphia chromosome); treated with
+      tyrosine-kinase inhibitors. Can transform to a blast crisis.</p>
+    </div>
+    <div>
+      <figure>
+        <img src="images/abn_smudge_cells.png" alt="Chronic lymphocytic leukemia with smudge cells" />
+        <figcaption><b>Fig 22.2 — CLL.</b> Numerous small mature lymphocytes with fragile <em>smudge (smear) cells</em>.</figcaption>
+      </figure>
+      <p class="small"><strong>CLL</strong> — commonest adult leukemia in the West; elderly; often asymptomatic lymphocytosis
+      &plusmn; lymphadenopathy.</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <span class="t">Key contrast</span>
+    CML = <em>too many maturing myeloid cells</em> across all stages; CLL = <em>too many identical mature lymphocytes</em>.
+    Confirm CML with BCR-ABL1 and CLL with flow cytometry.
+  </div>
+  <div class="pagefoot"><span>Essentials of Hematology</span><span>Ch.22 — Chronic Leukemias</span></div>
+</section>
+
+<!-- ===================== SECTION 23 ===================== -->
+<section class="page">
+  <span class="kicker">Part VI — Blood Cancers &bull; Chapter 23</span>
+  <h2>23. Lymphomas &amp; Plasma Cell Disorders</h2>
+  <p class="lead">These are cancers of lymphoid cells that mainly form <strong>tissue masses</strong> (lymphomas) or fill the
+  marrow with <strong>plasma cells</strong> (myeloma), rather than flooding the blood.</p>
+
+  <div class="grid2">
+    <div>
+      <figure>
+        <img src="images/tumor_reed_sternberg.png" alt="Reed-Sternberg cell in Hodgkin lymphoma" />
+        <figcaption><b>Fig 23.1 — Reed–Sternberg cell.</b> Large binucleate &ldquo;owl-eye&rdquo; cell — the hallmark of
+        <em>Hodgkin lymphoma</em>.</figcaption>
+      </figure>
+    </div>
+    <div>
+      <figure>
+        <img src="images/tumor_myeloma.png" alt="Plasma cells in multiple myeloma with rouleaux" />
+        <figcaption><b>Fig 23.2 — Multiple myeloma.</b> Abnormal plasma cells (eccentric nucleus, perinuclear hof)
+        with background <em>rouleaux</em>.</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <h3>Quick differentiation</h3>
+  <table>
+    <tr><th>Disease</th><th>Hallmark</th><th>Typical clues</th></tr>
+    <tr><td><strong>Hodgkin lymphoma</strong></td><td>Reed–Sternberg cells</td><td>Contiguous nodes, young adults, B-symptoms</td></tr>
+    <tr><td><strong>Non-Hodgkin lymphoma</strong></td><td>Diverse B/T clones (no RS cells)</td><td>Widespread nodes; may spill into blood</td></tr>
+    <tr><td><strong>Multiple myeloma</strong></td><td>Clonal plasma cells + M-protein</td><td>CRAB: hyperCalcemia, Renal, Anemia, Bone lesions; rouleaux</td></tr>
+  </table>
+  <div class="pagefoot"><span>Essentials of Hematology</span><span>Ch.23 — Lymphoma &amp; Myeloma</span></div>
+</section>
+
+<!-- ===================== SECTION 24 ===================== -->
+<section class="page">
+  <span class="kicker">Part VI — Blood Cancers &bull; Chapter 24</span>
+  <h2>24. Myeloproliferative &amp; Myelodysplastic Neoplasms</h2>
+  <p class="lead">Two related myeloid groups: <strong>MPN</strong> — the marrow makes <em>too many</em> mature cells;
+  <strong>MDS</strong> — the marrow makes <em>dysplastic, ineffective</em> cells (cytopenias despite a busy marrow).</p>
+
+  <h3>Myeloproliferative neoplasms (MPN)</h3>
+  <table>
+    <tr><th>Neoplasm</th><th>Overproduced cell</th><th>Clue</th></tr>
+    <tr><td><strong>Polycythemia vera</strong></td><td>Red cells</td><td>High Hb/Hct; JAK2 mutation; itching, thrombosis</td></tr>
+    <tr><td><strong>Essential thrombocythemia</strong></td><td>Platelets</td><td>Very high platelets; large/giant forms</td></tr>
+    <tr><td><strong>Primary myelofibrosis</strong></td><td>Fibrous marrow</td><td>Teardrop cells, leukoerythroblastic film, big spleen</td></tr>
+    <tr><td><strong>CML</strong></td><td>Granulocytes</td><td>BCR-ABL1 (see Ch 22)</td></tr>
+  </table>
+
+  <div class="grid2">
+    <div>
+      <figure>
+        <img src="images/tumor_mds.png" alt="Myelodysplastic dysplasia: pseudo-Pelger-Huet and hypogranular neutrophils" />
+        <figcaption><b>Fig 24.1 — MDS dysplasia.</b> Pseudo–Pelger–Huët neutrophil (bilobed) and a hypogranular
+        neutrophil — signs of ineffective, disordered maturation.</figcaption>
+      </figure>
+    </div>
+    <div>
+      <div class="callout">
+        <span class="t">Myelodysplastic syndromes (MDS)</span>
+        Clonal stem-cell disorders of older adults. The blood shows <strong>cytopenias</strong> with dysplastic cells;
+        the marrow is usually hypercellular. Carries a risk of transformation to AML.
+      </div>
+      <div class="callout warn">
+        <span class="t">Reading tip</span>
+        Dysplasia across &ge;2 lineages (e.g. hypogranular neutrophils + oval macrocytes + abnormal platelets) with
+        cytopenias should prompt an MDS work-up.
+      </div>
+    </div>
+  </div>
+  <div class="pagefoot"><span>Essentials of Hematology</span><span>Ch.24 — MPN &amp; MDS</span></div>
+</section>
+
+<!-- ===================== SECTION 25 ===================== -->
+<section class="page">
+  <span class="kicker">Reference</span>
+  <h2>25. Quick Reference Tables</h2>
+
+  <h3>Morphology → Think of</h3>
+  <table>
+    <tr><th>Finding</th><th>First consider</th></tr>
+    <tr><td>Microcytic, hypochromic RBCs</td><td>Iron deficiency, thalassemia</td></tr>
+    <tr><td>Macrocytes + hypersegmented neutrophils</td><td>B12 / folate deficiency</td></tr>
+    <tr><td>Spherocytes</td><td>Hereditary spherocytosis, autoimmune hemolysis</td></tr>
+    <tr><td>Schistocytes + low platelets</td><td>MAHA / DIC / TTP-HUS</td></tr>
+    <tr><td>Target cells</td><td>Liver disease, thalassemia, HbC</td></tr>
+    <tr><td>Teardrop cells + leukoerythroblastic film</td><td>Marrow fibrosis / infiltration</td></tr>
+    <tr><td>Blasts / Auer rods</td><td>Acute leukemia — urgent review</td></tr>
+  </table>
+
+  <h3>Coagulation factors at a glance</h3>
+  <table>
+    <tr><th>Factor</th><th>Name</th><th>Pathway</th></tr>
+    <tr><td>I</td><td>Fibrinogen</td><td>Common</td></tr>
+    <tr><td>II</td><td>Prothrombin*</td><td>Common</td></tr>
+    <tr><td>III</td><td>Tissue factor</td><td>Extrinsic</td></tr>
+    <tr><td>IV</td><td>Calcium</td><td>All</td></tr>
+    <tr><td>V</td><td>Proaccelerin (cofactor)</td><td>Common</td></tr>
+    <tr><td>VII</td><td>Proconvertin*</td><td>Extrinsic</td></tr>
+    <tr><td>VIII</td><td>Antihemophilic (cofactor)</td><td>Intrinsic</td></tr>
+    <tr><td>IX</td><td>Christmas*</td><td>Intrinsic</td></tr>
+    <tr><td>X</td><td>Stuart–Prower*</td><td>Common</td></tr>
+    <tr><td>XI</td><td>PTA</td><td>Intrinsic</td></tr>
+    <tr><td>XII</td><td>Hageman</td><td>Intrinsic</td></tr>
+    <tr><td>XIII</td><td>Fibrin-stabilizing</td><td>Cross-linking</td></tr>
+  </table>
+  <p class="small">*Vitamin K–dependent (II, VII, IX, X). Hemophilia A = VIII deficiency; Hemophilia B = IX deficiency.</p>
+
+  <div class="callout">
+    <span class="t">End of atlas</span>
+    Morphology tells you <em>what</em> the cells look like; coagulation tells you <em>how</em> they stop bleeding.
+    Together they cover the core of routine laboratory hematology.
+  </div>
+  <div class="pagefoot"><span>Essentials of Hematology</span><span>Reference</span></div>
+</section>
+
+</body>
+</html>
